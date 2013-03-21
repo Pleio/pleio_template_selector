@@ -1,0 +1,34 @@
+= Version history =
+
+1.0 beta:
+
+- added: support for Elgg 1.8
+
+0.4 (2011-06-07):
+
+- added: custom css to extend site css with own special markup
+	
+0.3 (2011-05-27):
+
+- added: option to position header logo (left, right, center, free)
+- added: option to specify header height (in pixels)
+- removed: logout link
+- fixed: css cache is not updated after changing theme settings
+- fixed: updating a theme with an existing custom logo fails
+- fixed: js error void() in login dropdown
+- fixed: menu container needs a fixed height so it always shows correctly
+
+0.2 (2011-03-03):
+
+- added: option to remove footer logo from template (default no)
+- added: option to show a drop down login at top of the page (default yes)
+- added: option to add a searchbox to the menu bar (default yes)
+	
+0.1.1 (2010-01-24):
+
+- fixed: support for widget manager
+- fixed: css issue #layout_header with IE7
+	
+0.1:
+
+- initial version
