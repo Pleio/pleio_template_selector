@@ -1,6 +1,7 @@
 = Version history =
 x.x:
 - fixed: deprecated /pg/ url
+- fixed: PHP warning file not found
 
 1.0 beta:
 
