@@ -1,4 +1,6 @@
 = Version history =
+x.x:
+- fixed: deprecated /pg/ url
 
 1.0 beta:
 

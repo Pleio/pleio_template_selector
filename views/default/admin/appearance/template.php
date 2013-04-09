@@ -124,7 +124,7 @@
 				$('#pleio_template_selector_admin_logo_preview').show();
 				$('#pleio_template_selector_admin_logo_custom_wrapper').show();
 
-				$('#pleio_template_selector_admin_logo_preview img:first').attr("src", "<?php echo $vars["url"]; ?>pg/template_selector/custom_sitelogo/logo.png");
+				$('#pleio_template_selector_admin_logo_preview img:first').attr("src", "<?php echo $vars["url"]; ?>template_selector/custom_sitelogo/logo.png");
 				break;
 			default:
 				$('#pleio_template_selector_admin_logo_preview').show();
