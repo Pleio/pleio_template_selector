@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 	function pleio_template_selector_get_site_logo(){
 		global $CONFIG;
@@ -9,7 +9,7 @@
 			switch($sitelogo){
 				case "custom":
 					if(file_get_contents($CONFIG->dataroot . "pleio_template_selector/site_logos/logo_" . $CONFIG->site_guid)){
-						$result = $CONFIG->wwwroot . "pg/template_selector/custom_sitelogo/logo.jpg";
+						$result = $CONFIG->wwwroot . "template_selector/custom_sitelogo/logo.jpg";
 					}
 					
 					break;
@@ -65,7 +65,7 @@
 			case "mint":
 				$colors[0] = "6ED9AD";
 				$colors[1] = "CBE6DB";
-				$colors[2] = "E5F2ED"; 
+				$colors[2] = "E5F2ED";
 				break;
 			case "magenta":
 				$colors[0] = "900079";
