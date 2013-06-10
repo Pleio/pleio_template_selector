@@ -1,7 +1,10 @@
 = Version history =
+
 x.x:
+
 - fixed: deprecated /pg/ url
 - fixed: PHP warning file not found
+- fixed: site logo not visible in walled garden mode
 
 1.0 beta:
 
