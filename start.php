@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 	require_once(dirname(__FILE__) . "/lib/functions.php");
 
@@ -11,6 +11,8 @@
 		
 		// set colors for template
 		pleio_template_selector_set_colors();
+		
+		elgg_register_plugin_hook_handler("public_pages", "walled_garden", "pleio_template_selector_walled_garden_hook");
 		
 		// check for custom_css
 		elgg_extend_view("css/elgg", "pleio_template_selector/custom_css", 9999); // place it at the end so it can easily override other css
@@ -29,6 +31,15 @@
 			default:
 				return false;
 		}
+	}
+	
+	function pleio_template_selector_walled_garden_hook($hook_name, $entity_type, $return_value, $params){
+		$result = $return_value;
+		
+		// add site logo to the public pages
+		$result[] = "template_selector/custom_sitelogo/.*";
+				
+		return $result;
 	}
 		
 	// register default Elgg events
