@@ -1,4 +1,4 @@
-<?php 
+<?php
 	$title = $vars["title"];
 	$message = nl2br($vars["message"]);
 	$language = get_current_language();
@@ -10,8 +10,8 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<base target="_blank" />
 		
-		<?php 
-			if(!empty($title)){ 
+		<?php
+			if(!empty($title)){
 				echo "<title>" . $title . "</title>\n";
 			}
 		?>
@@ -19,8 +19,8 @@
 	<body>
 		<style type="text/css">
 			body {
-				font: 80%/1.4 "Lucida Grande", Verdana, sans-serif;
-				color: #333333;				
+				font: 12px/17px "Lucida Grande", Verdana, sans-serif;
+				color: #333333;
 			}
 			
 			a {
@@ -43,7 +43,7 @@
 				font-weight: bold;
 				color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
 				font-size: 1.5em;
-			} 
+			}
 		
 			#notification_wrapper {
 				background: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_2;?>;
@@ -53,8 +53,8 @@
 			#notification_wrapper h2 {
 				margin: 5px 0 5px 10px;
 				color: #999;
-				font-size: 1.35em;
-				line-height: 1.2em;
+				font-size: 16px;
+				line-height: 20px;
 			}
 			
 			#notification_content {
@@ -85,7 +85,7 @@
 	
 		<div id="notification_container">
 			<div id="notification_header">
-				<?php 
+				<?php
 					$site_url = elgg_view("output/url", array("href" => $vars["config"]->site->url, "text" => $vars["config"]->site->name));
 					echo $site_url;
 				?>
@@ -99,7 +99,7 @@
 			</div>
 			
 			<div id="notification_footer">
-				<?php 
+				<?php
 					if(elgg_is_logged_in()){
 						$settings_url = $vars["url"] . "settings";
 						if(elgg_is_active_plugin("notifications")){

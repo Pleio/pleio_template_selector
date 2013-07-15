@@ -5,6 +5,7 @@ x.x:
 - fixed: deprecated /pg/ url
 - fixed: PHP warning file not found
 - fixed: site logo not visible in walled garden mode
+- changed: CSS definitions in html email template of font-size from em to px, for better detection by SpamAssasin
 
 1.0 beta:
 
