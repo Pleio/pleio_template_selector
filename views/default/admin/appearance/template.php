@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 	// allowed values
 	$allowed_colorsets = array("navy", "mint", "magenta", "yellow", "purple", "violet", "pink", "orange", "sand", "green", "custom");
@@ -26,7 +26,7 @@
 	
 	$yesno_options = array(
 		"yes" => elgg_echo("option:yes"),
-		"no" => elgg_echo("option:no")		
+		"no" => elgg_echo("option:no")
 	);
 	
 	$logo_align_options = array(
@@ -84,71 +84,6 @@
 ?>
 <link rel="stylesheet" media="screen" type="text/css" href="<?php echo $vars["url"]; ?>mod/pleio_template_selector/vendors/colorpicker/css/colorpicker.css" />
 <script type="text/javascript" src="<?php echo $vars["url"]; ?>mod/pleio_template_selector/vendors/colorpicker/js/colorpicker.js"></script>
-
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('#pleio_template_selector_admin_settings_form input[name="params[colorset]"]').change(function(){
-			var value = $(this).val();
-			
-			if(value != "custom"){
-				$('#pleio_template_selector_admin_colorset_colorpicker').hide();
-			} else {
-				$('#pleio_template_selector_admin_colorset_colorpicker').show();
-			}
-		});
-
-		$('#custom_color_1, #custom_color_2, #custom_color_3, #custom_color_4, #custom_color_5').ColorPicker({
-			onSubmit: function(hsb, hex, rgb, el){
-				$(el).val(hex.toUpperCase());
-				$(el).css("background-color", "#" + hex);
-				$(el).ColorPickerHide();
-			},
-			onBeforeShow: function(){
-				var val = $(this).val();
-				$(this).ColorPickerSetColor(val);
-			}
-		}).bind('keyup', function(){
-			$(this).ColorPickerSetColor($(this).val());
-		});
-	});
-
-	function pleio_template_selector_change_sitelogo(elm){
-		var value = $(elm).val();
-
-		switch(value){
-			case "none":
-				$('#pleio_template_selector_admin_logo_preview').hide();
-				$('#pleio_template_selector_admin_logo_custom_wrapper').hide();
-				break;
-			case "custom":
-				$('#pleio_template_selector_admin_logo_preview').show();
-				$('#pleio_template_selector_admin_logo_custom_wrapper').show();
-
-				$('#pleio_template_selector_admin_logo_preview img:first').attr("src", "<?php echo $vars["url"]; ?>template_selector/custom_sitelogo/logo.png");
-				break;
-			default:
-				$('#pleio_template_selector_admin_logo_preview').show();
-				$('#pleio_template_selector_admin_logo_custom_wrapper').hide();
-
-				$('#pleio_template_selector_admin_logo_preview img:first').attr("src", "<?php echo $vars["url"]; ?>mod/pleio_template_selector/_graphics/sitelogos/" + value + ".png");
-				break;
-		}
-	}
-	
-	function pleio_template_selector_change_sitelogo_align(elm){
-		var value = $(elm).val();
-
-		switch(value){
-			case "custom":
-				$('#pleio_template_selector_admin_logo_align_custom').show();
-				break;
-			default:
-				$('#pleio_template_selector_admin_logo_align_custom').hide();
-				break;
-		}
-	}
-	
-</script>
 
 <form id="pleio_template_selector_admin_settings_form" action="<?php echo $vars["url"]; ?>action/template_selector/settings" method="post" enctype="multipart/form-data">
 	<?php echo elgg_view("input/securitytoken"); ?>
@@ -261,11 +196,11 @@
 			<h3><?php echo elgg_echo("pleio_template_selector:forms:admin:custom_css:header"); ?></h3>
 		</div>
 		<div class="elgg-body">
-			<?php 
+			<?php
 				echo elgg_view("input/plaintext", array("name" => "params[custom_css]", "value" => elgg_get_plugin_setting("custom_css", "pleio_template_selector")));
-			 	echo "<div class='elgg-subtext'>". elgg_echo("pleio_template_selector:forms:admin:custom_css:disclaimer") . "</div>"; 
+			 	echo "<div class='elgg-subtext'>". elgg_echo("pleio_template_selector:forms:admin:custom_css:disclaimer") . "</div>";
 			 ?>
-		</div>	
+		</div>
 	</div>
 	
 	<?php echo elgg_view("input/submit", array("value" => elgg_echo("save"))); ?>
