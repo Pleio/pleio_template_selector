@@ -21,6 +21,11 @@
 		elgg_extend_view("css/elgg", "pleio_template_selector/custom_css", 9999); // place it at the end so it can easily override other css
 				
 		elgg_register_admin_menu_item("configure", "template", "appearance", 50);
+		
+		// register libraries
+		elgg_register_js("colorpicker", elgg_get_site_url() . "mod/pleio_template_selector/vendors/colorpicker/js/colorpicker.js");
+		elgg_register_css("colorpicker", elgg_get_site_url() . "mod/pleio_template_selector/vendors/colorpicker/css/colorpicker.css");
+		
 	}
 
 	function pleio_template_selector_page_handler($page){

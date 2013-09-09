@@ -58,7 +58,6 @@
 	}
 	
 	if($colorset == "custom"){
-		$hide_colorset_preview = "style='display:none;'";
 		$show_colorset_custom = "style='display:block;'";
 	}
 	
@@ -80,10 +79,10 @@
 	}
 	
 	$logo_url = pleio_template_selector_get_site_logo();
-	
+
+	elgg_load_css("colorpicker");
+	elgg_load_js("colorpicker");
 ?>
-<link rel="stylesheet" media="screen" type="text/css" href="<?php echo $vars["url"]; ?>mod/pleio_template_selector/vendors/colorpicker/css/colorpicker.css" />
-<script type="text/javascript" src="<?php echo $vars["url"]; ?>mod/pleio_template_selector/vendors/colorpicker/js/colorpicker.js"></script>
 
 <form id="pleio_template_selector_admin_settings_form" action="<?php echo $vars["url"]; ?>action/template_selector/settings" method="post" enctype="multipart/form-data">
 	<?php echo elgg_view("input/securitytoken"); ?>
