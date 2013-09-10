@@ -29,7 +29,7 @@
 						$custom_colors = get_input("custom_color");
 						
 						if(!empty($custom_colors) && is_array($custom_colors)){
-							$pattern = "/[a-f0-9]{6}$/i";
+							$pattern = "/^[a-f0-9]{6}$/i";
 							
 							foreach($custom_colors as $index => $color){
 								if(preg_match($pattern, $color)){
