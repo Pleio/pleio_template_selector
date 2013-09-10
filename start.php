@@ -4,7 +4,7 @@
 
 	function pleio_template_selector_init(){
 		// extend css
-		elgg_extend_view("css/admin", "pleio_template_selector/css");
+		elgg_extend_view("css/admin", "css/pleio_template_selector/admin");
 
 		// extend js
 		elgg_extend_view("js/admin", "js/pleio_template_selector/admin");
@@ -25,7 +25,6 @@
 		// register libraries
 		elgg_register_js("colorpicker", elgg_get_site_url() . "mod/pleio_template_selector/vendors/colorpicker/js/colorpicker.js");
 		elgg_register_css("colorpicker", elgg_get_site_url() . "mod/pleio_template_selector/vendors/colorpicker/css/colorpicker.css");
-		
 	}
 
 	function pleio_template_selector_page_handler($page){

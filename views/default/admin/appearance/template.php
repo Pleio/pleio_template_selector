@@ -1,33 +1,28 @@
 <?php
 
-	// allowed values
-	$allowed_colorsets = array("navy", "mint", "magenta", "yellow", "purple", "violet", "pink", "orange", "sand", "green", "custom");
-	$allowed_logos = array("none", "blank", "defensie", "rijksoverheid", "custom");
+	$plugin = elgg_get_plugin_from_id("pleio_template_selector");
 
-	// configured settings
-	$colorset = elgg_get_plugin_setting("colorset", "pleio_template_selector");
-	$logo = elgg_get_plugin_setting("sitelogo", "pleio_template_selector");
-	$show_title = elgg_get_plugin_setting("show_title", "pleio_template_selector");
-	$show_search = elgg_get_plugin_setting("show_search", "pleio_template_selector");
-	$show_login_dropdown = elgg_get_plugin_setting("show_login_dropdown", "pleio_template_selector");
-	$show_logo_footer = elgg_get_plugin_setting("show_logo_footer", "pleio_template_selector");
-	$logo_align = elgg_get_plugin_setting("sitelogo_align", "pleio_template_selector");
-	$logo_align_top = (int) elgg_get_plugin_setting("sitelogo_align_top", "pleio_template_selector");
-	$logo_align_left = (int) elgg_get_plugin_setting("sitelogo_align_left", "pleio_template_selector");
-	$header_height = (int) elgg_get_plugin_setting("layout_header_height", "pleio_template_selector");
+	$allowed_colorsets = array(
+		"navy" => elgg_echo("pleio_template_selector:settings:colorset:navy"),
+		"mint" => elgg_echo("pleio_template_selector:settings:colorset:mint"),
+		"magenta" => elgg_echo("pleio_template_selector:settings:colorset:magenta"),
+		"yellow" => elgg_echo("pleio_template_selector:settings:colorset:yellow"),
+		"purple" => elgg_echo("pleio_template_selector:settings:colorset:purple"),
+		"violet" => elgg_echo("pleio_template_selector:settings:colorset:violet"),
+		"pink" => elgg_echo("pleio_template_selector:settings:colorset:pink"),
+		"orange" => elgg_echo("pleio_template_selector:settings:colorset:orange"),
+		"sand" => elgg_echo("pleio_template_selector:settings:colorset:sand"),
+		"green" => elgg_echo("pleio_template_selector:settings:colorset:green"),
+		"custom" => elgg_echo("pleio_template_selector:settings:colorset:custom")
+	);
 	
-	if(empty($colorset) || !is_array($allowed_colorsets)){
+	$colorset = $plugin->colorset;
+	
+	if (empty($colorset) || !array_key_exists($colorset, $allowed_colorsets)) {
 		$colorset = "navy";
 	}
 	
-	// build colorset selector
-	$colorset_contents = "";
-	$preview_colorset = "";
-	
-	$yesno_options = array(
-		"yes" => elgg_echo("option:yes"),
-		"no" => elgg_echo("option:no")
-	);
+	$allowed_logos = array("none", "blank", "defensie", "rijksoverheid", "custom");
 	
 	$logo_align_options = array(
 		"center" => elgg_echo("pleio_template_selector:sitelogo:align:center"),
@@ -36,172 +31,104 @@
 		"custom" => elgg_echo("pleio_template_selector:sitelogo:align:custom"),
 	);
 	
-	foreach($allowed_colorsets as $set){
-		$title_text = elgg_echo("pleio_template_selector:forms:admin:colorset:" . $set);
-		$colorset_contents .= "<div title='" . $title_text . "'>";
-		
-		if($set == $colorset){
-			$preview_colorset = $set;
-			$checked = "checked='checked'";
-		} else {
-			$checked = "";
-		}
-		
-		$colorset_contents .= "<input type='radio' name='params[colorset]' value='" . $set . "' " . $checked . " />\n";
-		$colorset_contents .= $title_text;
-		
-		$colorset_contents .= "</div>";
-	}
+	$yesno_options = array(
+		"yes" => elgg_echo("option:yes"),
+		"no" => elgg_echo("option:no")
+	);
 	
-	if(empty($preview_colorset) || $preview_colorset == "custom"){
-		$preview_colorset = $allowed_colorsets[0];
-	}
-	
-	if($colorset == "custom"){
-		$show_colorset_custom = "style='display:block;'";
-	}
-	
-	// build logo selector
-	$logo_options = "";
-	
-	foreach($allowed_logos as $alogo){
-		if($alogo == $logo){
-			$selected = "selected='selected'";
-		} else {
-			$selected = "";
-		}
-		
-		$logo_options .= "<option value='" . $alogo . "' " . $selected . ">" . elgg_echo("pleio_template_selector:forms:admin:logo:" . $alogo) . "</option>\n";
-	}
-	
-	if($logo == "custom"){
-		$show_custom_logo = "style='display:block;'";
-	}
-	
-	$logo_url = pleio_template_selector_get_site_logo();
-
 	elgg_load_css("colorpicker");
 	elgg_load_js("colorpicker");
-?>
 
-<form id="pleio_template_selector_admin_settings_form" action="<?php echo $vars["url"]; ?>action/template_selector/settings" method="post" enctype="multipart/form-data">
-	<?php echo elgg_view("input/securitytoken"); ?>
+	// building form
+	$form_body = "";
 	
-	<div id="pleio_template_selector_admin_colorset_container" class="elgg-module elgg-module-inline">
-		<div class="elgg-head">
-			<h3><?php echo elgg_echo("pleio_template_selector:forms:admin:colorset:header"); ?></h3>
-		</div>
-		<div class="elgg-body">
-			<div id="pleio_template_selector_admin_colorset_options">
-				<?php echo $colorset_contents; ?>
-			</div>
+	// color settings
+	$colorset_body = "<div id='pleio-template-selector-colorset-wrapper'>";
+	
+	$colorset_body .= elgg_view("input/text", array("name" => "custom_color[1]", "value" => PLEIO_TEMPLATE_SELECTOR_COLOR_1, "class" => "pleio-template-selector-colorpicker mrm mbs", "style" => "background: #" . PLEIO_TEMPLATE_SELECTOR_COLOR_1));
+	$colorset_body .= elgg_echo("pleio_template_selector:settings:colorset:custom:1") . "<br />";
 		
-			<div id="pleio_template_selector_admin_colorset_wrapper">
-				<div id="pleio_template_selector_admin_colorset_colorpicker" <?php echo $show_colorset_custom; ?>>
-					<div>
-						<input type="text" name="custom_color[1]" value="<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1; ?>" id="custom_color_1" size="7" maxlength="6" style="background-color:#<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1; ?>;" />
-						<?php echo elgg_echo("pleio_template_selector:forms:admin:colorset:custom:1"); ?>
-					</div>
-					<div>
-						<input type="text" name="custom_color[2]" value="<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_2; ?>" id="custom_color_2" size="7" maxlength="6" style="background-color:#<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_2; ?>;" />
-						<?php echo elgg_echo("pleio_template_selector:forms:admin:colorset:custom:2"); ?>
-					</div>
-					<div>
-						<input type="text" name="custom_color[3]" value="<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_3; ?>" id="custom_color_3" size="7" maxlength="6" style="background-color:#<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_3; ?>;" />
-						<?php echo elgg_echo("pleio_template_selector:forms:admin:colorset:custom:3"); ?>
-					</div>
-					<div>
-						<input type="text" name="custom_color[4]" value="<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_4; ?>" id="custom_color_4" size="7" maxlength="6" style="background-color:#<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_4; ?>;" />
-						<?php echo elgg_echo("pleio_template_selector:forms:admin:colorset:custom:4"); ?>
-					</div>
-					<div>
-						<input type="text" name="custom_color[5]" value="<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_5; ?>" id="custom_color_5" size="7" maxlength="6" style="background-color:#<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_5; ?>;" />
-						<?php echo elgg_echo("pleio_template_selector:forms:admin:colorset:custom:5"); ?>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	$colorset_body .= elgg_view("input/text", array("name" => "custom_color[2]", "value" => PLEIO_TEMPLATE_SELECTOR_COLOR_2, "class" => "pleio-template-selector-colorpicker mrm mbs", "style" => "background: #" . PLEIO_TEMPLATE_SELECTOR_COLOR_2));
+	$colorset_body .= elgg_echo("pleio_template_selector:settings:colorset:custom:2") . "<br />";
+		
+	$colorset_body .= elgg_view("input/text", array("name" => "custom_color[3]", "value" => PLEIO_TEMPLATE_SELECTOR_COLOR_3, "class" => "pleio-template-selector-colorpicker mrm mbs", "style" => "background: #" . PLEIO_TEMPLATE_SELECTOR_COLOR_3));
+	$colorset_body .= elgg_echo("pleio_template_selector:settings:colorset:custom:3") . "<br />";
+		
+	$colorset_body .= elgg_view("input/text", array("name" => "custom_color[4]", "value" => PLEIO_TEMPLATE_SELECTOR_COLOR_4, "class" => "pleio-template-selector-colorpicker mrm mbs", "style" => "background: #" . PLEIO_TEMPLATE_SELECTOR_COLOR_4));
+	$colorset_body .= elgg_echo("pleio_template_selector:settings:colorset:custom:4") . "<br />";
+		
+	$colorset_body .= elgg_view("input/text", array("name" => "custom_color[5]", "value" => PLEIO_TEMPLATE_SELECTOR_COLOR_5, "class" => "pleio-template-selector-colorpicker mrm mbs", "style" => "background: #" . PLEIO_TEMPLATE_SELECTOR_COLOR_5));
+	$colorset_body .= elgg_echo("pleio_template_selector:settings:colorset:custom:5") . "<br />";
+
+	$colorset_body .= "</div>";
 	
-	<div id="pleio_template_selector_admin_logo_container" class="elgg-module elgg-module-inline">
-		<div class="elgg-head">
-			<h3><?php echo elgg_echo("pleio_template_selector:forms:admin:logo:header"); ?></h3>
-		</div>
-		<div class="elgg-body">
-			<div id="pleio_template_selector_admin_logo_wrapper">
-				<div id="pleio_template_selector_admin_logo_options">
-					<select name="params[sitelogo]" onchange="pleio_template_selector_change_sitelogo(this);">
-						<?php echo $logo_options; ?>
-					</select>
-				</div>
-				
-				<div id="pleio_template_selector_admin_logo_preview">
-					<img src="<?php echo $logo_url; ?>" />
-				</div>
-				
-				<div class="clearfloat"></div>
-				
-				<div>
-					<?php echo elgg_echo("pleio_template_selector:forms:admin:logo:align"); ?>
-					<?php echo elgg_view("input/dropdown", array("name" => "params[sitelogo_align]", "value" => $logo_align, "options_values" => $logo_align_options, "js" => "onchange='pleio_template_selector_change_sitelogo_align(this);'")); ?>
-				</div>
-				
-				<div id="pleio_template_selector_admin_logo_align_custom">
-					<?php echo elgg_echo("pleio_template_selector:forms:admin:logo:align:custom:top"); ?> <input type="text" name="params[sitelogo_align_top]" size="3" maxlength="3" value="<?php echo $logo_align_top; ?>" /> px
-					<?php echo elgg_echo("pleio_template_selector:forms:admin:logo:align:custom:left"); ?> <input type="text" name="params[sitelogo_align_left]" size="3" maxlength="3" value="<?php echo $logo_align_left; ?>" /> px
-				</div>
-				
-				<div>
-					<?php echo elgg_echo("pleio_template_selector:forms:admin:logo:footer"); ?>
-					<?php echo elgg_view("input/dropdown", array("name" => "params[show_logo_footer]", "value" => $show_logo_footer, "options_values" => $yesno_options)); ?>
-				</div>
-				
-			</div>
-			
-			<div id="pleio_template_selector_admin_logo_custom_wrapper" <?php echo $show_custom_logo; ?>>
-				<label><?php echo elgg_echo("pleio_template_selector:forms:admin:logo:custom:label"); ?></label>
-				<div class="elgg-subtext"><?php echo elgg_echo("pleio_template_selector:forms:admin:logo:custom:description"); ?></div>
-				<input type="file" name="custom_sitelogo" />
-			</div>
-		</div>
-	</div>
+	$colorset_body .= "<div id='pleio_template_selector_admin_colorset_options'>";
+	$colorset_body .= elgg_view("input/radio", array("name" => "params[colorset]", "value" => $colorset, "options" => array_flip($allowed_colorsets)));
+	$colorset_body .= "</div>";
 	
-	<div id="pleio_template_selector_admin_misc_container" class="elgg-module elgg-module-inline">
-		<div class="elgg-head">
-			<h3><?php echo elgg_echo("pleio_template_selector:forms:admin:misc:header"); ?></h3>
-		</div>
-		<div class="elgg-body">
-			<div>
-				<?php echo elgg_echo("pleio_template_selector:forms:admin:misc:show_title"); ?>
-				<?php echo elgg_view("input/dropdown", array("name" => "params[show_title]", "value" => $show_title, "options_values" => $yesno_options)); ?>
-			</div>
-			<div>
-				<?php echo elgg_echo("pleio_template_selector:forms:admin:misc:show_search"); ?>
-				<?php echo elgg_view("input/dropdown", array("name" => "params[show_search]", "value" => $show_search, "options_values" => $yesno_options)); ?>
-			</div>
-			<div>
-				<?php echo elgg_echo("pleio_template_selector:forms:admin:misc:show_login_dropdown"); ?>
-				<?php echo elgg_view("input/dropdown", array("name" => "params[show_login_dropdown]", "value" => $show_login_dropdown, "options_values" => $yesno_options)); ?>
-			</div>
-			<div>
-				<?php echo elgg_echo("pleio_template_selector:forms:admin:misc:layout_header_height"); ?>&nbsp;
-				<input type="text" name="params[layout_header_height]" value="<?php echo $header_height; ?>" size="3" maxlength="3" /> px
-			</div>
-		</div>
-	</div>
+	$form_body .= elgg_view_module("inline", elgg_echo("pleio_template_selector:settings:colorset:header"), $colorset_body);
 	
-	<div id="pleio_template_selector_admin_misc_container" class="elgg-module elgg-module-inline">
-		<div class="elgg-head">
-			<h3><?php echo elgg_echo("pleio_template_selector:forms:admin:custom_css:header"); ?></h3>
-		</div>
-		<div class="elgg-body">
-			<?php
-				echo elgg_view("input/plaintext", array("name" => "params[custom_css]", "value" => elgg_get_plugin_setting("custom_css", "pleio_template_selector")));
-			 	echo "<div class='elgg-subtext'>". elgg_echo("pleio_template_selector:forms:admin:custom_css:disclaimer") . "</div>";
-			 ?>
-		</div>
-	</div>
+	// header settings
+	$header = "<div id='pleio-template-selector-admin-logo-preview'><img src='" . pleio_template_selector_get_site_logo(). "' /></div>";
 	
-	<?php echo elgg_view("input/submit", array("value" => elgg_echo("save"))); ?>
+	$header .= "<label>" . elgg_echo("pleio_template_selector:settings:header:show_title") . "&nbsp;";
+	$header .= elgg_view("input/dropdown", array("name" => "params[show_title]", "value" => $plugin->show_title, "options_values" => $yesno_options)) . "</label><br />";
 	
-</form>
+	$header .= "<label>" . elgg_echo("pleio_template_selector:settings:header:show_search") . "&nbsp;";
+	$header .= elgg_view("input/dropdown", array("name" => "params[show_search]", "value" => $plugin->show_search, "options_values" => $yesno_options)) . "</label><br />";
+	
+	$header .= "<label>" . elgg_echo("pleio_template_selector:settings:header:show_login_dropdown") . "&nbsp;";
+	$header .= elgg_view("input/dropdown", array("name" => "params[show_login_dropdown]", "value" => $plugin->show_login_dropdown, "options_values" => $yesno_options)) . "</label><br />";
+	
+	$header .= "<label>" . elgg_echo("pleio_template_selector:settings:header:layout_header_height") . "&nbsp;";
+	$header .= elgg_view("input/text", array("name" => "params[layout_header_height]", "value" => (int) $plugin->layout_header_height, "class" => "pleio-template-selector-setting-small-input")) . "px</label><br />";
+	
+	$header .= "<br />";
+	
+	$header .= "<label>" . elgg_echo("pleio_template_selector:settings:header:sitelogo") . "&nbsp;";
+	$header .= elgg_view("input/dropdown", array("name" => "params[sitelogo]", "value" => $plugin->sitelogo, "options" => $allowed_logos, "onchange" => "elgg.pleio_template_selector.sitelogo_change(this)")) . "</label><br />";
+	
+	$header .= "<label>" . elgg_echo("pleio_template_selector:settings:header:sitelogo_align") . "&nbsp;";
+	$header .= elgg_view("input/dropdown", array("name" => "params[sitelogo_align]", "value" => $plugin->sitelogo_align, "options_values" => $logo_align_options, "onchange" => "elgg.pleio_template_selector.sitelogo_change_align(this)")) . "</label>";
+	
+	// logo alignment
+	$hidden = "";
+	if ($plugin->sitelogo_align !== "custom") {
+		$hidden = " hidden";
+	}
+	$header .= "<span id='pleio-template-selector-admin-logo-align-custom' class='plm$hidden'>";
+	$header .= elgg_echo("top") . "&nbsp;";
+	$header .= elgg_view("input/text", array("name" => "params[sitelogo_align_top]", "value" => (int) $plugin->sitelogo_align_top, "class" => "pleio-template-selector-setting-small-input")) . "px &nbsp;";
+	$header .= elgg_echo("pleio_template_selector:settings:header:sitelogo_align:left") . "&nbsp;";
+	$header .= elgg_view("input/text", array("name" => "params[sitelogo_align_left]", "value" => (int) $plugin->sitelogo_align_left, "class" => "pleio-template-selector-setting-small-input")) . "px";
+	$header .= "</span><br />";
+		
+	// custom logo
+	$hidden = "";
+	if ($plugin->sitelogo !== "custom") {
+		$hidden = " class='hidden'";
+	}
+	
+	$header .= "<div id='pleio-template-selector-admin-logo-custom-wrapper'$hidden>";
+	$header .= "<label>". elgg_echo("pleio_template_selector:settings:header:sitelogo:custom");
+	$header .= elgg_view("input/file", array("name" => "custom_sitelogo")) . "</label>";
+	$header .= "</div>";
+	
+	$form_body .= elgg_view_module("inline", elgg_echo("pleio_template_selector:settings:header:title"), $header);
+
+	// footer settings
+	$footer = "<label>" . elgg_echo("pleio_template_selector:settings:footer:show_logo_footer") . "&nbsp;";
+	$footer .= elgg_view("input/dropdown", array("name" => "params[show_logo_footer]", "value" => $plugin->show_logo_footer, "options_values" => $yesno_options)) . "</label>";
+					
+	$form_body .= elgg_view_module("inline", elgg_echo("pleio_template_selector:settings:footer:title"), $footer);
+	
+	// custom css
+	$custom_css = elgg_view("input/plaintext", array("name" => "params[custom_css]", "value" => $plugin->custom_css));
+	$custom_css .= "<div class='elgg-subtext'>". elgg_echo("pleio_template_selector:settings:custom_css:disclaimer") . "</div>";
+		
+	$form_body .= elgg_view_module("inline", elgg_echo("pleio_template_selector:settings:custom_css:title"), $custom_css);
+	
+	$form_body .= elgg_view("input/submit", array("value" => elgg_echo("save")));
+	
+	echo elgg_view("input/form", array("id" => "pleio-template-selector-admin-settings-form", "action" => "action/template_selector/settings", "enctype" => "multipart/form-data", "body" => $form_body));
+	
