@@ -51,9 +51,7 @@
 		}
 		
 		// reset cache
-		elgg_regenerate_simplecache(); // update sc timestamps
-		elgg_invalidate_simplecache(); // remove files
-		elgg_filepath_cache_reset();
+		elgg_invalidate_simplecache();
 		
 		if(empty($error_count)){
 			system_message(elgg_echo("pleio_template_selector:actions:settings:success"));
