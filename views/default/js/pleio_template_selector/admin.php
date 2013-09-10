@@ -20,10 +20,12 @@ elgg.pleio_template_selector.init = function() {
 }
 
 elgg.pleio_template_selector.sitelogo_change = function(elm) {
+	var value = $(elm).val();
+	
 	$preview = $('#pleio-template-selector-admin-logo-preview');
 	$custom_wrapper = $('#pleio-template-selector-admin-logo-custom-wrapper');
-	
-	switch($(elm).val()){
+
+	switch(value){
 		case "none":
 			$preview.hide();
 			$custom_wrapper.hide();
