@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 	$params = get_input("params");
 	
@@ -43,10 +43,8 @@
 					}
 				default:
 					if($setting == "custom_css"){
-						global $_REQUEST;
-						
-						$value = $_REQUEST["params"]["custom_css"];	
-					} 
+						$value = $_REQUEST["params"]["custom_css"];
+					}
 					elgg_set_plugin_setting($setting, $value, "pleio_template_selector");
 					break;
 			}
@@ -54,7 +52,7 @@
 		
 		// reset cache
 		elgg_regenerate_simplecache(); // update sc timestamps
-		elgg_invalidate_simplecache(); // remove files 
+		elgg_invalidate_simplecache(); // remove files
 		elgg_filepath_cache_reset();
 		
 		if(empty($error_count)){
