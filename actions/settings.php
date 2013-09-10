@@ -16,7 +16,7 @@
 								$error_count++;
 								register_error(elgg_echo("pleio_template_selector:actions:settings:error:custom_logo:save"));
 							}
-						} elseif(file_exists($CONFIG->dataroot . "pleio_template_selector/site_logos/logo_" . $CONFIG->site_guid)){
+						} elseif(file_exists(elgg_get_config("dataroot") . "pleio_template_selector/site_logos/logo_" . elgg_get_site_entity()->getGUID())){
 							elgg_set_plugin_setting($setting, $value, "pleio_template_selector");
 						} else {
 							$error_count++;
