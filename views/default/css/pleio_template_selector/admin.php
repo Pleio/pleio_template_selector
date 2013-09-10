@@ -2,7 +2,7 @@
 ?>
 .pleio-template-selector-colorpicker,
 .pleio-template-selector-setting-small-input {
-	width: 50px;
+	width: 55px;
 	padding: 0 5px;
 	font-size: 100%;
 }
