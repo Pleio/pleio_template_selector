@@ -36,15 +36,12 @@
 		
 		'pleio_template_selector:settings:footer:title' => "Footer",
 		'pleio_template_selector:settings:footer:show_logo_footer' => "Show footer logo",
-		
 			
 		'pleio_template_selector:settings:logo:none' => "No site logo",
 		'pleio_template_selector:settings:logo:blank' => "Blank default site logo",
 		'pleio_template_selector:settings:logo:custom' => "Custom logo",
 		'pleio_template_selector:settings:logo:defensie' => "Ministerie van Defensie",
 		'pleio_template_selector:settings:logo:rijksoverheid' => "Rijksoverheid",
-		
-		
 		
 		'pleio_template_selector:settings:header:title' => "Header",
 		'pleio_template_selector:settings:header:show_title' => "Show site title",
@@ -61,7 +58,6 @@
 		'pleio_template_selector:sitelogo:align:right' => "Right",
 		'pleio_template_selector:sitelogo:align:custom' => "Custom",
 		
-		
 		'pleio_template_selector:settings:logo:align:custom:top' => "Top",
 		'pleio_template_selector:settings:logo:align:custom:left' => "Left",
 	
@@ -71,7 +67,6 @@
 		'pleio_template_selector:actions:settings:error:custom_logo:save' => "There was an error while saving the custom logo",
 		'pleio_template_selector:actions:settings:error:save' => "There were some errors while saving the settings",
 		'pleio_template_selector:actions:settings:success' => "The template settings were saved successfully",
-	
 	);
 	
 	add_translation("en", $english);

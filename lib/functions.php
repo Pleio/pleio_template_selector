@@ -1,15 +1,13 @@
 <?php
 
 	function pleio_template_selector_get_site_logo(){
-		global $CONFIG;
-		
 		$result = false;
 		
 		if($sitelogo = elgg_get_plugin_setting("sitelogo", "pleio_template_selector")){
 			switch($sitelogo){
 				case "custom":
-					if(file_get_contents($CONFIG->dataroot . "pleio_template_selector/site_logos/logo_" . $CONFIG->site_guid)){
-						$result = $CONFIG->wwwroot . "template_selector/custom_sitelogo/logo.jpg";
+					if(file_get_contents(elgg_get_config("dataroot") . "pleio_template_selector/site_logos/logo_" . elgg_get_site_entity()->getGUID())){
+						$result = elgg_get_site_url() . "template_selector/custom_sitelogo/logo.jpg";
 					}
 					
 					break;
@@ -17,7 +15,7 @@
 					// nothing
 					break;
 				default:
-					$result = $CONFIG->wwwroot . "mod/pleio_template_selector/_graphics/sitelogos/" . $sitelogo . ".png";
+					$result = elgg_get_site_url() . "mod/pleio_template_selector/_graphics/sitelogos/" . $sitelogo . ".png";
 					break;
 			}
 		}
@@ -26,20 +24,18 @@
 	}
 
 	function pleio_template_selector_save_custom_logo($logo_contents){
-		global $CONFIG;
-		
 		$result = false;
 		
 		if(!empty($logo_contents)){
-			if(!is_dir($CONFIG->dataroot . "pleio_template_selector/")){
-				mkdir($CONFIG->dataroot . "pleio_template_selector/");
+			if(!is_dir(elgg_get_config("dataroot") . "pleio_template_selector/")){
+				mkdir(elgg_get_config("dataroot") . "pleio_template_selector/");
 			}
 			
-			if(!is_dir($CONFIG->dataroot . "pleio_template_selector/site_logos/")){
-				mkdir($CONFIG->dataroot . "pleio_template_selector/site_logos/");
+			if(!is_dir(elgg_get_config("dataroot") . "pleio_template_selector/site_logos/")){
+				mkdir(elgg_get_config("dataroot") . "pleio_template_selector/site_logos/");
 			}
 			
-			if(file_put_contents($CONFIG->dataroot . "pleio_template_selector/site_logos/logo_" . $CONFIG->site_guid, $logo_contents)){
+			if(file_put_contents(elgg_get_config("dataroot") . "pleio_template_selector/site_logos/logo_" . elgg_get_site_entity()->getGUID(), $logo_contents)){
 				$result = true;
 			}
 		}
