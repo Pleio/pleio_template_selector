@@ -32,7 +32,7 @@
 							$pattern = "[a-fA-F0-9]{6}";
 							
 							foreach($custom_colors as $index => $color){
-								if(ereg($pattern, $color)){
+								if(preg_match($pattern, $color)){
 									elgg_set_plugin_setting("custom_color_" . $index, $color, "pleio_template_selector");
 								}
 							}
