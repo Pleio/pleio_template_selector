@@ -23,7 +23,7 @@
 	width: 990px;
 	margin: 0 auto;
 	height: 150px;
-	border-bottom: 10px solid #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_2;?>;
+	border-bottom: 10px solid #<?php echo THEME_COLOR_2;?>;
 }
 .elgg-page-default .elgg-page-body > .elgg-inner {
 	width: 990px;
@@ -105,7 +105,7 @@
 /***** PAGE BODY LAYOUT ******/
 .elgg-layout {
 	min-height: 360px;
-	background: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_2;?>;
+	background: #<?php echo THEME_COLOR_2;?>;
 }
 
 .elgg-sidebar {

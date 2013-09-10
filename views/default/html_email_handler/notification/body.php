@@ -24,7 +24,7 @@
 			}
 			
 			a {
-				color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+				color: #<?php echo THEME_COLOR_1;?>;
 			}
 			
 			#notification_container {
@@ -41,12 +41,12 @@
 			#notification_header a {
 				text-decoration: none;
 				font-weight: bold;
-				color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+				color: #<?php echo THEME_COLOR_1;?>;
 				font-size: 1.5em;
 			}
 		
 			#notification_wrapper {
-				background: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_2;?>;
+				background: #<?php echo THEME_COLOR_2;?>;
 				padding: 10px;
 			}
 			
@@ -65,7 +65,7 @@
 			#notification_footer {
 				
 				margin: 10px 0 0;
-				background: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_2;?>;
+				background: #<?php echo THEME_COLOR_2;?>;
 				padding: 10px;
 				text-align: right;
 			}

@@ -26,12 +26,12 @@
 	border-radius: 4px;
 	
 	padding: 2px 6px;
-	color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
-	border: 1px solid #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	color: #<?php echo THEME_COLOR_1;?>;
+	border: 1px solid #<?php echo THEME_COLOR_1;?>;
 	font-size: 12px;
 }
 .elgg-pagination a:hover {
-	background: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_2;?>;
+	background: #<?php echo THEME_COLOR_2;?>;
 	text-decoration: none;
 }
 .elgg-pagination .elgg-state-disabled span {
@@ -164,7 +164,7 @@
 	SITE MENU
 *************************************** */
 .elgg-menu-site-container {
-	background: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1; ?>;
+	background: #<?php echo THEME_COLOR_1; ?>;
 	bottom: 0;
     height: 45px;
     left: 0;
@@ -214,7 +214,7 @@
 .elgg-menu-site-default > .elgg-state-selected > a,
 .elgg-menu-site-default > li:hover > a {
 	color: #000;
-	background: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_2; ?>;
+	background: #<?php echo THEME_COLOR_2; ?>;
 }
 
 .elgg-menu-site-more {
@@ -244,7 +244,7 @@
 }
 
 .elgg-menu-site-more > li > a:hover {
-	background: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_2;?>;
+	background: #<?php echo THEME_COLOR_2;?>;
 }
 
 .elgg-more > a:before {
@@ -329,12 +329,12 @@
 	padding: 2px 4px 2px 8px;
 }
 .elgg-menu-page a:hover {
-	background-color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	background-color: #<?php echo THEME_COLOR_1;?>;
 	color: white;
 	text-decoration: none;
 }
 .elgg-menu-page li.elgg-state-selected > a {
-	background-color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	background-color: #<?php echo THEME_COLOR_1;?>;
 	color: white;
 }
 .elgg-menu-page .elgg-child-menu {
@@ -474,12 +474,12 @@
 	padding: 2px 4px 2px 8px;
 }
 .elgg-menu-owner-block li a:hover {
-	background-color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	background-color: #<?php echo THEME_COLOR_1;?>;
 	color: white;
 	text-decoration: none;
 }
 .elgg-menu-owner-block li.elgg-state-selected > a {
-	background-color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	background-color: #<?php echo THEME_COLOR_1;?>;
 	color: white;
 }
 

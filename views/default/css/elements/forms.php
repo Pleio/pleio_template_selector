@@ -44,8 +44,8 @@ input, textarea {
 input[type=text]:focus, 
 input[type=password]:focus, 
 textarea:focus {
-	border: solid 1px #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
-	background: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_2;?>;
+	border: solid 1px #<?php echo THEME_COLOR_1;?>;
+	background: #<?php echo THEME_COLOR_2;?>;
 	color:#333;
 }
 
@@ -290,7 +290,7 @@ input[type="radio"] {
 	margin-top: 3px;
 	width: 208px;
 	background-color: white;
-	border: 1px solid #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	border: 1px solid #<?php echo THEME_COLOR_1;?>;
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
 	border-radius: 6px;
@@ -308,13 +308,13 @@ input[type="radio"] {
 
 .ui-datepicker-header {
 	position: relative;
-	background: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_2;?>;
-	color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	background: #<?php echo THEME_COLOR_2;?>;
+	color: #<?php echo THEME_COLOR_1;?>;
 	padding: 2px 0;
 	border-bottom: 1px solid #0054A7;
 }
 .ui-datepicker-header a {
-	color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	color: #<?php echo THEME_COLOR_1;?>;
 }
 .ui-datepicker-prev, .ui-datepicker-next {
     position: absolute;
@@ -337,7 +337,7 @@ input[type="radio"] {
 	margin: 4px;
 }
 .ui-datepicker th {
-	color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	color: #<?php echo THEME_COLOR_1;?>;
 	border: none;
     font-weight: bold;
     padding: 5px 6px;
@@ -355,18 +355,18 @@ input[type="radio"] {
 }
 .ui-datepicker-calendar .ui-state-default {
 	border: 1px solid #ccc;
-    color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;;
+    color: #<?php echo THEME_COLOR_1;?>;;
 	background: #fafafa;
 }
 .ui-datepicker-calendar .ui-state-hover {
 	border: 1px solid #aaa;
-    color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+    color: #<?php echo THEME_COLOR_1;?>;
 	background: #eee;
 }
 .ui-datepicker-calendar .ui-state-active,
 .ui-datepicker-calendar .ui-state-active.ui-state-hover {
 	font-weight: bold;
-    border: 1px solid #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
-    color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
-	background: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_2;?>;
+    border: 1px solid #<?php echo THEME_COLOR_1;?>;
+    color: #<?php echo THEME_COLOR_1;?>;
+	background: #<?php echo THEME_COLOR_2;?>;
 }

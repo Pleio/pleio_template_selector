@@ -70,24 +70,24 @@
 }
 
 #pleio-template-selector-search .elgg-search {
-	border-color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_2;?>;
+	border-color: #<?php echo THEME_COLOR_2;?>;
 }
 
 #pleio-template-selector-search .elgg-search input.search-input[type="text"] {
-	border-color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_2;?>;
+	border-color: #<?php echo THEME_COLOR_2;?>;
 	background-color: #FFFFFF;
-	color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	color: #<?php echo THEME_COLOR_1;?>;
 	background-position: 220px -916px;
 }
 
 #pleio-template-selector-search .search-advanced-type-selection > li > a {
-	background-color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	background-color: #<?php echo THEME_COLOR_1;?>;
 }
 
 #pleio-template-selector-search .search-advanced-type-selection-dropdown {
-	border-color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_2;?>;
+	border-color: #<?php echo THEME_COLOR_2;?>;
 }
 
 #pleio-template-selector-search .search-advanced-type-selection-dropdown a:hover {
-	background-color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	background-color: #<?php echo THEME_COLOR_1;?>;
 }

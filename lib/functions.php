@@ -119,9 +119,9 @@
 				break;
 		}
 		
-		define("PLEIO_TEMPLATE_SELECTOR_COLOR_1", strtoupper($colors[0]));
-		define("PLEIO_TEMPLATE_SELECTOR_COLOR_2", strtoupper($colors[1]));
-		define("PLEIO_TEMPLATE_SELECTOR_COLOR_3", strtoupper($colors[2]));
-		define("PLEIO_TEMPLATE_SELECTOR_COLOR_4", strtoupper($colors[3]));
-		define("PLEIO_TEMPLATE_SELECTOR_COLOR_5", strtoupper($colors[4]));
+		define("THEME_COLOR_1", strtoupper($colors[0]));
+		define("THEME_COLOR_2", strtoupper($colors[1]));
+		define("THEME_COLOR_3", strtoupper($colors[2]));
+		define("THEME_COLOR_4", strtoupper($colors[3]));
+		define("THEME_COLOR_5", strtoupper($colors[4]));
 	}

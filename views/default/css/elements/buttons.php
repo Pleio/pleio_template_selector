@@ -37,15 +37,15 @@ a.elgg-button {
 	color: white;
 	text-shadow: 1px 1px 0px black;
 	text-decoration: none;
-	border: 1px solid #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
-	background: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?> url(<?php echo elgg_get_site_url(); ?>_graphics/button_graduation.png) repeat-x left 10px;
+	border: 1px solid #<?php echo THEME_COLOR_1;?>;
+	background: #<?php echo THEME_COLOR_1;?> url(<?php echo elgg_get_site_url(); ?>_graphics/button_graduation.png) repeat-x left 10px;
 }
 
 .elgg-button-submit:hover {
-	border-color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	border-color: #<?php echo THEME_COLOR_1;?>;
 	text-decoration: none;
 	color: white;
-	background: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?> url(<?php echo elgg_get_site_url(); ?>_graphics/button_graduation.png) repeat-x left 10px;
+	background: #<?php echo THEME_COLOR_1;?> url(<?php echo elgg_get_site_url(); ?>_graphics/button_graduation.png) repeat-x left 10px;
 }
 
 .elgg-button-submit.elgg-state-disabled {

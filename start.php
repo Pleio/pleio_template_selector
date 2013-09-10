@@ -3,23 +3,21 @@
 	require_once(dirname(__FILE__) . "/lib/functions.php");
 
 	function pleio_template_selector_init(){
+		// set colors for template
+		pleio_template_selector_set_colors();
+		
 		// extend css
 		elgg_extend_view("css/admin", "css/pleio_template_selector/admin");
-
+		elgg_extend_view("css/elgg", "pleio_template_selector/custom_css", 9999); // place it at the end so it can easily override other css
+		
 		// extend js
 		elgg_extend_view("js/admin", "js/pleio_template_selector/admin");
 		
 		// register pagehandler for nice URL's
 		elgg_register_page_handler("template_selector", "pleio_template_selector_page_handler");
 		
-		// set colors for template
-		pleio_template_selector_set_colors();
-		
 		elgg_register_plugin_hook_handler("public_pages", "walled_garden", "pleio_template_selector_walled_garden_hook");
 		
-		// check for custom_css
-		elgg_extend_view("css/elgg", "pleio_template_selector/custom_css", 9999); // place it at the end so it can easily override other css
-				
 		elgg_register_admin_menu_item("configure", "template", "appearance", 50);
 		
 		// register libraries

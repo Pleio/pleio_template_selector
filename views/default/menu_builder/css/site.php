@@ -33,7 +33,7 @@
 
 .elgg-menu-site .elgg-child-menu a:hover {
 	text-decoration: none;
-	background: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	background: #<?php echo THEME_COLOR_1;?>;
 	color: white;
 }
 

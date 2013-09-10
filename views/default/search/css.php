@@ -25,7 +25,7 @@ Search plugin
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 	
-	border: 1px solid #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_2;?>;
+	border: 1px solid #<?php echo THEME_COLOR_2;?>;
 	color: white;
 	font-size: 12px;
 	font-weight: bold;
@@ -36,7 +36,7 @@ Search plugin
 	background-color: white;
 	background-position: 2px -916px;
 	border: 1px solid white;
-	color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	color: #<?php echo THEME_COLOR_1;?>;
 }
 
 .search-list li {

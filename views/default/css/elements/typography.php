@@ -17,12 +17,12 @@ body {
 }
 
 a {
-	color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_4;?>;
+	color: #<?php echo THEME_COLOR_4;?>;
 }
 
 a:hover,
 a.selected { <?php //@todo remove .selected ?>
-	color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_5;?>;
+	color: #<?php echo THEME_COLOR_5;?>;
 	text-decoration: underline;
 }
 
@@ -38,7 +38,7 @@ pre, code {
 	font-family: Monaco, "Courier New", Courier, monospace;
 	font-size: 12px;
 	
-	background:#<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_3;?>;
+	background:#<?php echo THEME_COLOR_3;?>;
 	color:#000000;
 	overflow:auto;
 
@@ -67,7 +67,7 @@ blockquote {
 	line-height: 1.3em;
 	padding:3px 15px;
 	margin:0px 0 15px 0;
-	background:#<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_3;?>;
+	background:#<?php echo THEME_COLOR_3;?>;
 	border:none;
 	
 	-webkit-border-radius: 4px;
@@ -77,7 +77,7 @@ blockquote {
 
 h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
-	color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	color: #<?php echo THEME_COLOR_1;?>;
 }
 
 h1 { font-size: 1.8em; }
@@ -88,7 +88,7 @@ h5 { font-size: 0.9em; }
 h6 { font-size: 0.8em; }
 
 .elgg-heading-site, .elgg-heading-site:hover {
-	color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1; ?>;
+	color: #<?php echo THEME_COLOR_1; ?>;
 	position: absolute;
 	bottom: 50px;
 	left: 20px;

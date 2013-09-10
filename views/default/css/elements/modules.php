@@ -48,7 +48,7 @@
 	margin-bottom: 5px;
 }
 .elgg-module-popup > .elgg-head * {
-	color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	color: #<?php echo THEME_COLOR_1;?>;
 }
 
 /* Dropdown */
@@ -78,7 +78,7 @@
 
 /* Featured */
 .elgg-module-featured {
-	border: 1px solid #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	border: 1px solid #<?php echo THEME_COLOR_1;?>;
 	
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
@@ -86,7 +86,7 @@
 }
 .elgg-module-featured > .elgg-head {
 	padding: 5px;
-	background-color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	background-color: #<?php echo THEME_COLOR_1;?>;
 }
 .elgg-module-featured > .elgg-head * {
 	color: white;
@@ -137,23 +137,23 @@
 }
 
 .elgg-module-widget {
-	background-color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	background-color: #<?php echo THEME_COLOR_1;?>;
 	padding: 2px;
 	margin: 0 5px 15px;
 	position: relative;
 }
 .elgg-module-widget:hover {
-	background-color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	background-color: #<?php echo THEME_COLOR_1;?>;
 }
 .elgg-module-widget > .elgg-head {
-	background-color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_2;?>;
+	background-color: #<?php echo THEME_COLOR_2;?>;
 	height: 26px;
 	overflow: hidden;
 }
 .elgg-module-widget > .elgg-head h3 {
 	float: left;
 	padding: 4px 45px 0 20px;
-	color: #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	color: #<?php echo THEME_COLOR_1;?>;
 }
 .elgg-module-widget.elgg-state-draggable .elgg-widget-handle {
 	cursor: move;
@@ -176,7 +176,7 @@ a.elgg-widget-collapsed:before {
 	background-color: white;
 	width: 100%;
 	overflow: hidden;
-	border-top: 2px solid #<?php echo PLEIO_TEMPLATE_SELECTOR_COLOR_1;?>;
+	border-top: 2px solid #<?php echo THEME_COLOR_1;?>;
 }
 .elgg-widget-edit {
 	display: none;
