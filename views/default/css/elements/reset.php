@@ -77,8 +77,3 @@ blockquote, q {
 a {
 	text-decoration: none;
 }
-* {
-	-webkit-border-radius: 0px !important;
-	-moz-border-radius: 0px !important;
-	border-radius: 0px !important;
-}

@@ -122,6 +122,12 @@
 					
 	$form_body .= elgg_view_module("inline", elgg_echo("pleio_template_selector:settings:footer:title"), $footer);
 	
+	// other settings
+	$other = "<label>" . elgg_echo("pleio_template_selector:settings:other:disable_rounded_corners") . "&nbsp;";
+	$other .= elgg_view("input/dropdown", array("name" => "params[disable_rounded_corners]", "value" => $plugin->disable_rounded_corners, "options_values" => $yesno_options)) . "</label>";
+					
+	$form_body .= elgg_view_module("inline", elgg_echo("pleio_template_selector:settings:other:title"), $other);
+	
 	// custom css
 	$custom_css = elgg_view("input/plaintext", array("name" => "params[custom_css]", "value" => $plugin->custom_css));
 	$custom_css .= "<div class='elgg-subtext'>". elgg_echo("pleio_template_selector:settings:custom_css:disclaimer") . "</div>";

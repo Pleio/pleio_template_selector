@@ -37,6 +37,9 @@
 		'pleio_template_selector:settings:footer:title' => "Footer",
 		'pleio_template_selector:settings:footer:show_logo_footer' => "Show footer logo",
 			
+		'pleio_template_selector:settings:other:title' => "Other",
+		'pleio_template_selector:settings:other:disable_rounded_corners' => "Remove rounded corners",
+			
 		'pleio_template_selector:settings:logo:none' => "No site logo",
 		'pleio_template_selector:settings:logo:blank' => "Blank default site logo",
 		'pleio_template_selector:settings:logo:custom' => "Custom logo",
