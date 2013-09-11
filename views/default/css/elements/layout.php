@@ -23,6 +23,7 @@
 	width: 990px;
 	margin: 0 auto;
 	height: 150px;
+	background: white;
 	border-bottom: 10px solid #<?php echo THEME_COLOR_2;?>;
 }
 .elgg-page-default .elgg-page-body > .elgg-inner {

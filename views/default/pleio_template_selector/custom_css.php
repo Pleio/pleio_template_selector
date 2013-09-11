@@ -6,6 +6,8 @@ $disable_rounded_corners = elgg_get_plugin_setting("disable_rounded_corners", "p
 $menu_bottom = sanitise_int(elgg_get_plugin_setting("menu_bottom", "pleio_template_selector"), false);
 $menu_align = elgg_get_plugin_setting("menu_align", "pleio_template_selector");
 $background_color = elgg_get_plugin_setting("custom_color_6", "pleio_template_selector");
+$show_body_gradient = elgg_get_plugin_setting("show_body_gradient", "pleio_template_selector");
+$use_background_image = elgg_get_plugin_setting("use_background_image", "pleio_template_selector");
 
 $search_bottom = sanitise_int(elgg_get_plugin_setting("search_bottom", "pleio_template_selector"));
 if (!$search_bottom) {
@@ -72,10 +74,48 @@ if ($disable_rounded_corners != "no") {
 if ($background_color) {
 	?>
 	body {
-		background: #<?php echo $background_color; ?>;
+		background-color: #<?php echo $background_color; ?>;
 	}
 	<?php
 }
+
+if ($show_body_gradient == "no") {
+	?>
+	
+	.elgg-page-default .elgg-page-body,
+	.elgg-page-header,
+	.elgg-page-theme-footer,
+	.elgg-page-theme-header {
+		background: none;
+	}
+	<?php
+}
+
+if ($use_background_image == "yes") {
+	$background_image_position = elgg_get_plugin_setting("background_image_position", "pleio_template_selector");
+	$background_image_fixed = elgg_get_plugin_setting("background_image_fixed", "pleio_template_selector");
+	$background_image_repeat = elgg_get_plugin_setting("background_image_repeat", "pleio_template_selector");
+	
+	if ($background_image_url = pleio_template_selector_get_site_background()) {
+		?>
+		body {
+			background-image: url(<?php echo $background_image_url; ?>);
+			background-position: <?php echo $background_image_position; ?>;
+			background-repeat: <?php echo $background_image_repeat; ?>;
+			<?php
+			if ($background_image_fixed == "yes") {
+				?>
+				background-attachment: fixed;
+				<?php
+			}
+			?>
+		}
+		<?php
+	}
+	
+}
+
+
 
 // Custom Css
 echo elgg_get_plugin_setting("custom_css", "pleio_template_selector");

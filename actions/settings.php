@@ -53,6 +53,13 @@
 			}
 		}
 		
+		if ($background_image = get_uploaded_file("background_image")) {
+			if (!pleio_template_selector_save_background_image($background_image)) {
+				$error_count++;
+				register_error(elgg_echo("pleio_template_selector:actions:settings:error:background_image:save"));
+			}
+		}
+		
 		// reset cache
 		elgg_invalidate_simplecache();
 		

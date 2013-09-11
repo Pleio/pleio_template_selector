@@ -34,6 +34,9 @@
 			case "custom_sitelogo":
 				include(dirname(__FILE__) . "/pages/custom_sitelogo.php");
 				break;
+			case "custom_background":
+				include(dirname(__FILE__) . "/pages/custom_background.php");
+				break;
 			default:
 				return false;
 		}
@@ -44,6 +47,7 @@
 		
 		// add site logo to the public pages
 		$result[] = "template_selector/custom_sitelogo/.*";
+		$result[] = "template_selector/custom_background/.*";
 				
 		return $result;
 	}

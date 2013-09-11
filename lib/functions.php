@@ -23,6 +23,16 @@
 		return $result;
 	}
 
+	function pleio_template_selector_get_site_background(){
+		$result = false;
+		
+		if(file_get_contents(elgg_get_config("dataroot") . "pleio_template_selector/site_logos/background_" . elgg_get_site_entity()->getGUID())){
+			$result = elgg_get_site_url() . "template_selector/custom_background/logo.jpg";
+		}
+				
+		return $result;
+	}
+
 	function pleio_template_selector_save_custom_logo($logo_contents){
 		$result = false;
 		
@@ -36,6 +46,26 @@
 			}
 			
 			if(file_put_contents(elgg_get_config("dataroot") . "pleio_template_selector/site_logos/logo_" . elgg_get_site_entity()->getGUID(), $logo_contents)){
+				$result = true;
+			}
+		}
+		
+		return $result;
+	}
+	
+	function pleio_template_selector_save_background_image($contents){
+		$result = false;
+		
+		if(!empty($contents)){
+			if(!is_dir(elgg_get_config("dataroot") . "pleio_template_selector/")){
+				mkdir(elgg_get_config("dataroot") . "pleio_template_selector/");
+			}
+			
+			if(!is_dir(elgg_get_config("dataroot") . "pleio_template_selector/site_logos/")){
+				mkdir(elgg_get_config("dataroot") . "pleio_template_selector/site_logos/");
+			}
+			
+			if(file_put_contents(elgg_get_config("dataroot") . "pleio_template_selector/site_logos/background_" . elgg_get_site_entity()->getGUID(), $contents)){
 				$result = true;
 			}
 		}

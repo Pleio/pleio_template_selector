@@ -31,6 +31,25 @@
 		"custom" => elgg_echo("pleio_template_selector:sitelogo:align:custom"),
 	);
 	
+	$background_image_position_options = array(
+		"left top" => elgg_echo("pleio_template_selector:settings:other:background_image_position:left_top"),
+		"left center" => elgg_echo("pleio_template_selector:settings:other:background_image_position:left_center"),
+		"left bottom" => elgg_echo("pleio_template_selector:settings:other:background_image_position:left_bottom"),
+		"right top" => elgg_echo("pleio_template_selector:settings:other:background_image_position:right_top"),
+		"right center" => elgg_echo("pleio_template_selector:settings:other:background_image_position:right_center"),
+		"right bottom" => elgg_echo("pleio_template_selector:settings:other:background_image_position:right_bottom"),
+		"center top" => elgg_echo("pleio_template_selector:settings:other:background_image_position:center_top"),
+		"center center" => elgg_echo("pleio_template_selector:settings:other:background_image_position:center_center"),
+		"center bottom" => elgg_echo("pleio_template_selector:settings:other:background_image_position:center_bottom"),
+	);
+	
+	$background_image_repeat_options = array(
+		"repeat" => elgg_echo("pleio_template_selector:settings:other:background_image_repeat:repeat"),
+		"repeat-x" => elgg_echo("pleio_template_selector:settings:other:background_image_repeat:repeat-x"),
+		"repeat-y" => elgg_echo("pleio_template_selector:settings:other:background_image_repeat:repeat-y"),
+		"no-repeat" => elgg_echo("pleio_template_selector:settings:other:background_image_repeat:no-repeat"),
+	);
+	
 	$left_right_align = array (
 		"left" => elgg_echo("pleio_template_selector:sitelogo:align:left"),
 		"right" => elgg_echo("pleio_template_selector:sitelogo:align:right")
@@ -40,6 +59,8 @@
 		"yes" => elgg_echo("option:yes"),
 		"no" => elgg_echo("option:no")
 	);
+	
+	$noyes_options = array_reverse($yesno_options, true);
 	
 	elgg_load_css("colorpicker");
 	elgg_load_js("colorpicker");
@@ -149,8 +170,26 @@
 	
 	// other settings
 	$other = "<label>" . elgg_echo("pleio_template_selector:settings:other:disable_rounded_corners") . "&nbsp;";
-	$other .= elgg_view("input/dropdown", array("name" => "params[disable_rounded_corners]", "value" => $plugin->disable_rounded_corners, "options_values" => $yesno_options)) . "</label>";
+	$other .= elgg_view("input/dropdown", array("name" => "params[disable_rounded_corners]", "value" => $plugin->disable_rounded_corners, "options_values" => $yesno_options)) . "</label><br />";
+
+	$other .= "<label>" . elgg_echo("pleio_template_selector:settings:other:show_body_gradient") . "&nbsp;";
+	$other .= elgg_view("input/dropdown", array("name" => "params[show_body_gradient]", "value" => $plugin->show_body_gradient, "options_values" => $yesno_options)) . "</label><br />";
 					
+	$other .= "<label>". elgg_echo("pleio_template_selector:settings:other:use_background_image") . "&nbsp;";
+	$other .= elgg_view("input/dropdown", array("name" => "params[use_background_image]", "value" => $plugin->use_background_image, "options_values" => $noyes_options)) . "</label><br />";
+	
+	$other .= "<label>". elgg_echo("pleio_template_selector:settings:other:background_image") . "&nbsp;";
+	$other .= elgg_view("input/file", array("name" => "background_image")) . "</label><br />";
+		
+	$other .= "<label>". elgg_echo("pleio_template_selector:settings:other:background_image_position") . "&nbsp;";
+	$other .= elgg_view("input/dropdown", array("name" => "params[background_image_position]", "value" => $plugin->background_image_position, "options_values" => $background_image_position_options)) . "</label><br />";
+			
+	$other .= "<label>". elgg_echo("pleio_template_selector:settings:other:background_image_fixed") . "&nbsp;";
+	$other .= elgg_view("input/dropdown", array("name" => "params[background_image_fixed]", "value" => $plugin->background_image_fixed, "options_values" => $noyes_options)) . "</label><br />";
+			
+	$other .= "<label>". elgg_echo("pleio_template_selector:settings:other:background_image_repeat") . "&nbsp;";
+	$other .= elgg_view("input/dropdown", array("name" => "params[background_image_repeat]", "value" => $plugin->background_image_repeat, "options_values" => $background_image_repeat_options)) . "</label><br />";
+			
 	$form_body .= elgg_view_module("inline", elgg_echo("pleio_template_selector:settings:other:title"), $other);
 	
 	// custom css
