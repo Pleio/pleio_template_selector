@@ -5,6 +5,7 @@ $show_logo_footer = elgg_get_plugin_setting("show_logo_footer", "pleio_template_
 $disable_rounded_corners = elgg_get_plugin_setting("disable_rounded_corners", "pleio_template_selector");
 $menu_bottom = sanitise_int(elgg_get_plugin_setting("menu_bottom", "pleio_template_selector"), false);
 $menu_align = elgg_get_plugin_setting("menu_align", "pleio_template_selector");
+$background_color = elgg_get_plugin_setting("custom_color_6", "pleio_template_selector");
 
 $search_bottom = sanitise_int(elgg_get_plugin_setting("search_bottom", "pleio_template_selector"));
 if (!$search_bottom) {
@@ -67,6 +68,14 @@ if ($disable_rounded_corners != "no") {
 	right: <?php echo $search_right; ?>px;
 }
 <?php
+
+if ($background_color) {
+	?>
+	body {
+		background: #<?php echo $background_color; ?>;
+	}
+	<?php
+}
 
 // Custom Css
 echo elgg_get_plugin_setting("custom_css", "pleio_template_selector");

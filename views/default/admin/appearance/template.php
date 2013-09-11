@@ -65,6 +65,14 @@
 	$colorset_body .= elgg_view("input/text", array("name" => "custom_color[5]", "value" => THEME_COLOR_5, "class" => "pleio-template-selector-colorpicker mrm mbs", "style" => "background: #" . THEME_COLOR_5));
 	$colorset_body .= elgg_echo("pleio_template_selector:settings:colorset:custom:5") . "<br />";
 
+	
+	$style = "";
+	if ($custom_color = $plugin->custom_color_6) {
+		$style = "background: #" . $custom_color;
+	}
+	$colorset_body .= elgg_view("input/text", array("name" => "custom_color[6]", "value" => $custom_color, "class" => "pleio-template-selector-colorpicker mrm mbs", "style" => $style));
+	$colorset_body .= elgg_echo("pleio_template_selector:settings:colorset:custom:6") . "<br />";
+
 	$colorset_body .= "</div>";
 	
 	$colorset_body .= "<div id='pleio_template_selector_admin_colorset_options'>";

@@ -28,6 +28,7 @@
 		'pleio_template_selector:settings:colorset:custom:3' => "Submenu highlighting + editboxes",
 		'pleio_template_selector:settings:colorset:custom:4' => "Link color",
 		'pleio_template_selector:settings:colorset:custom:5' => "Link hover color",
+		'pleio_template_selector:settings:colorset:custom:6' => "Body background",
 		
 		'pleio_template_selector:settings:header:sitelogo' => "Site logo",
 		'pleio_template_selector:settings:header:sitelogo:custom' => "Upload a custom logo",

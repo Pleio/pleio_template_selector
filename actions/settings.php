@@ -34,6 +34,9 @@
 							foreach($custom_colors as $index => $color){
 								if(preg_match($pattern, $color)){
 									elgg_set_plugin_setting("custom_color_" . $index, $color, "pleio_template_selector");
+								} elseif (empty($color)) {
+									// reset to default
+									elgg_unset_plugin_setting("custom_color_" . $index, "pleio_template_selector");
 								}
 							}
 							
