@@ -29,6 +29,9 @@
 		'pleio_template_selector:settings:colorset:custom:4' => "Link color",
 		'pleio_template_selector:settings:colorset:custom:5' => "Link hover color",
 		'pleio_template_selector:settings:colorset:custom:6' => "Body background",
+		'pleio_template_selector:settings:colorset:custom:7' => "Widget border",
+		'pleio_template_selector:settings:colorset:custom:8' => "Widget header",
+		'pleio_template_selector:settings:colorset:custom:9' => "Widget title",
 		
 		'pleio_template_selector:settings:header:sitelogo' => "Site logo",
 		'pleio_template_selector:settings:header:sitelogo:custom' => "Upload a custom logo",

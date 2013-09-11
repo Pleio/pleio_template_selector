@@ -77,75 +77,22 @@
 		
 		$colorset = elgg_get_plugin_setting("colorset", "pleio_template_selector");
 				
-		$colors = array("01689B", "CCE0F1", "E5F0F9", "154273", "0162CD"); //default color set
+		$colors = pleio_template_selector_get_colors("navy"); //default color set
 		
 		switch($colorset){
 			case "custom":
-				
 				for($i=0; $i < count($colors); $i++){
 					if($custom_color = elgg_get_plugin_setting("custom_color_" . ($i + 1), "pleio_template_selector")){
 						$colors[$i] = $custom_color;
 					}
 				}
 				break;
-			case "mint":
-				$colors[0] = "6ED9AD";
-				$colors[1] = "CBE6DB";
-				$colors[2] = "E5F2ED";
-				break;
-			case "magenta":
-				$colors[0] = "900079";
-				$colors[1] = "E3B2DA";
-				$colors[2] = "F1D9ED";
-				break;
-			case "yellow":
-				$colors[0] = "F9E11E";
-				$colors[1] = "FDF6BB";
-				$colors[2] = "FEFBDD";
-				break;
-			case "purple":
-				$colors[0] = "42145F";
-				$colors[1] = "C6B8CF";
-				$colors[2] = "E3DCE7";
-				break;
-			case "violet":
-				$colors[0] = "A90061";
-				$colors[1] = "E5B2CF";
-				$colors[2] = "F2D9E7";
-				break;
-			case "pink":
-				$colors[0] = "F092CD";
-				$colors[1] = "FADEF0";
-				$colors[2] = "FDEFF8";
-				break;
-			case "navy":
-				$colors[0] = "01689B";
-				$colors[1] = "CCE0F1";
-				$colors[2] = "E5F0F9";
-				$colors[3] = "154273";
-				$colors[4] = "0162CD";
-				break;
-			case "orange":
-				$colors[0] = "E17000";
-				$colors[1] = "F6D4B2";
-				$colors[2] = "FBEAD9";
-				break;
-			case "blue":
-				$colors[0] = "007BC7";
-				$colors[1] = "B2D7EE";
-				$colors[2] = "D9EBF7";
-				break;
-			case "sand":
-				$colors[0] = "F9B249";
-				$colors[1] = "FDE4BE";
-				$colors[2] = "FEF2DF";
-				break;
-			case "green":
-				$colors[0] = "4E9625";
-				$colors[1] = "CBE1BD";
-				$colors[2] = "E1FECF";
-				break;
 			default:
+				if ($colorset) {
+					if ($preset_colors = pleio_template_selector_get_colors($colorset)) {
+						$colors = $preset_colors + $colors;
+					}
+				}
 				break;
 		}
 		
@@ -154,4 +101,30 @@
 		define("THEME_COLOR_3", strtoupper($colors[2]));
 		define("THEME_COLOR_4", strtoupper($colors[3]));
 		define("THEME_COLOR_5", strtoupper($colors[4]));
+	}
+	
+	function pleio_template_selector_get_colors($color = ""){
+		$result = array();
+		
+		$colors = array (
+			"mint" => array ("6ED9AD", "CBE6DB", "E5F2ED"),
+			"magenta" => array ("900079", "E3B2DA", "F1D9ED"),
+			"yellow" => array ("F9E11E", "FDF6BB", "FEFBDD"),
+			"purple" => array ("42145F", "C6B8CF", "E3DCE7"),
+			"violet" => array ("A90061", "E5B2CF", "F2D9E7"),
+			"pink" => array ("F092CD", "FADEF0", "FDEFF8"),
+			"navy" => array ("01689B", "CCE0F1", "E5F0F9", "154273", "0162CD"),
+			"orange" => array ("E17000", "F6D4B2", "FBEAD9"),
+			"blue" => array ("007BC7", "B2D7EE", "D9EBF7"),
+			"sand" => array ("F9B249", "FDE4BE", "FEF2DF"),
+			"green" => array ("4E9625", "CBE1BD", "E1FECF"),
+		);
+		
+		if (empty($color)) {
+			$result = $colors;
+		} elseif (array_key_exists($color, $colors)) {
+			$result = $colors[$color];
+		}
+		
+		return $result;
 	}

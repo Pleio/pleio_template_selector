@@ -25,25 +25,22 @@
 						break;
 					}
 				case "colorset":
-					if($value == "custom"){
-						$custom_colors = get_input("custom_color");
+					$custom_colors = get_input("custom_color");
 						
-						if(!empty($custom_colors) && is_array($custom_colors)){
-							$pattern = "/^[a-f0-9]{6}$/i";
-							
-							foreach($custom_colors as $index => $color){
-								if(preg_match($pattern, $color)){
-									elgg_set_plugin_setting("custom_color_" . $index, $color, "pleio_template_selector");
-								} elseif (empty($color)) {
-									// reset to default
-									elgg_unset_plugin_setting("custom_color_" . $index, "pleio_template_selector");
-								}
+					if(!empty($custom_colors) && is_array($custom_colors)){
+						$pattern = "/^[a-f0-9]{6}$/i";
+						
+						foreach($custom_colors as $index => $color){
+							if(preg_match($pattern, $color)){
+								elgg_set_plugin_setting("custom_color_" . $index, $color, "pleio_template_selector");
+							} elseif (empty($color)) {
+								// reset to default
+								elgg_unset_plugin_setting("custom_color_" . $index, "pleio_template_selector");
 							}
-							
-							elgg_set_plugin_setting($setting, $value, "pleio_template_selector");
-							break;
 						}
 					}
+					elgg_set_plugin_setting($setting, $value, "pleio_template_selector");
+					break;
 				default:
 					if($setting == "custom_css"){
 						$value = $_REQUEST["params"]["custom_css"];

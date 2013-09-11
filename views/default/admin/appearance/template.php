@@ -71,6 +71,23 @@
 	// color settings
 	$colorset_body = "<div id='pleio-template-selector-colorset-wrapper'>";
 	
+	$colorset_body .= "<script type='text/javascript'>";
+	$colorset_body .= "var pleio_colors = new Object();\n";
+	$colorset_body .= "pleio_colors.custom = new Object();\n";
+	$colorset_body .= "pleio_colors.custom.custom_color_1 = \"" . THEME_COLOR_1 . "\";\n";
+	$colorset_body .= "pleio_colors.custom.custom_color_2 = \"" . THEME_COLOR_2 . "\";\n";
+	$colorset_body .= "pleio_colors.custom.custom_color_3 = \"" . THEME_COLOR_3 . "\";\n";
+	$colorset_body .= "pleio_colors.custom.custom_color_4 = \"" . THEME_COLOR_4 . "\";\n";
+	$colorset_body .= "pleio_colors.custom.custom_color_5 = \"" . THEME_COLOR_5 . "\";\n";
+	
+	foreach (pleio_template_selector_get_colors() as $color_name => $colors) {
+		$colorset_body .= "pleio_colors." . $color_name . " = new Object();\n";
+		foreach ($colors as $index => $hex) {
+			$colorset_body .= "pleio_colors." . $color_name . ".custom_color_" . ($index + 1) . " = \"" . $hex . "\";\n";
+		}
+	}
+	$colorset_body .= "</script>";
+	
 	$colorset_body .= elgg_view("input/text", array("name" => "custom_color[1]", "value" => THEME_COLOR_1, "class" => "pleio-template-selector-colorpicker mrm mbs", "style" => "background: #" . THEME_COLOR_1));
 	$colorset_body .= elgg_echo("pleio_template_selector:settings:colorset:custom:1") . "<br />";
 		
@@ -85,7 +102,6 @@
 		
 	$colorset_body .= elgg_view("input/text", array("name" => "custom_color[5]", "value" => THEME_COLOR_5, "class" => "pleio-template-selector-colorpicker mrm mbs", "style" => "background: #" . THEME_COLOR_5));
 	$colorset_body .= elgg_echo("pleio_template_selector:settings:colorset:custom:5") . "<br />";
-
 	
 	$style = "";
 	if ($custom_color = $plugin->custom_color_6) {
@@ -93,6 +109,27 @@
 	}
 	$colorset_body .= elgg_view("input/text", array("name" => "custom_color[6]", "value" => $custom_color, "class" => "pleio-template-selector-colorpicker mrm mbs", "style" => $style));
 	$colorset_body .= elgg_echo("pleio_template_selector:settings:colorset:custom:6") . "<br />";
+	
+	$style = "";
+	if ($custom_color = $plugin->custom_color_7) {
+		$style = "background: #" . $custom_color;
+	}
+	$colorset_body .= elgg_view("input/text", array("name" => "custom_color[7]", "value" => $custom_color, "class" => "pleio-template-selector-colorpicker mrm mbs", "style" => $style));
+	$colorset_body .= elgg_echo("pleio_template_selector:settings:colorset:custom:7") . "<br />";
+	
+	$style = "";
+	if ($custom_color = $plugin->custom_color_8) {
+		$style = "background: #" . $custom_color;
+	}
+	$colorset_body .= elgg_view("input/text", array("name" => "custom_color[8]", "value" => $custom_color, "class" => "pleio-template-selector-colorpicker mrm mbs", "style" => $style));
+	$colorset_body .= elgg_echo("pleio_template_selector:settings:colorset:custom:8") . "<br />";
+	
+	$style = "";
+	if ($custom_color = $plugin->custom_color_9) {
+		$style = "background: #" . $custom_color;
+	}
+	$colorset_body .= elgg_view("input/text", array("name" => "custom_color[9]", "value" => $custom_color, "class" => "pleio-template-selector-colorpicker mrm mbs", "style" => $style));
+	$colorset_body .= elgg_echo("pleio_template_selector:settings:colorset:custom:9") . "<br />";
 
 	$colorset_body .= "</div>";
 	

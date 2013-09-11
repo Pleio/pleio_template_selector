@@ -9,6 +9,7 @@ elgg.pleio_template_selector.init = function() {
 			$(el).val(hex.toUpperCase());
 			$(el).css("background-color", "#" + hex);
 			$(el).ColorPickerHide();
+			$('#pleio_template_selector_admin_colorset_options [name="params[colorset]"][value="custom"]').attr("checked", "checked");
 		},
 		onBeforeShow: function(){
 			var val = $(this).val();
@@ -16,7 +17,22 @@ elgg.pleio_template_selector.init = function() {
 		}
 	}).bind('keyup', function(){
 		$(this).ColorPickerSetColor($(this).val());
+		$('#pleio_template_selector_admin_colorset_options [name="params[colorset]"][value="custom"]').attr("checked", "checked");
 	});
+
+	$('#pleio_template_selector_admin_colorset_options [name="params[colorset]"]').live("click", elgg.pleio_template_selector.switch_colorset);
+}
+
+elgg.pleio_template_selector.switch_colorset = function (){
+	var selected_colorset = $(this).val();
+	if (pleio_colors[selected_colorset]) {
+		for (i = 1; i < 6; i++) {
+			var colorset_color_index = "custom_color_" + i;
+			if (colorset_color = pleio_colors[selected_colorset][colorset_color_index]) {
+				$("#pleio-template-selector-colorset-wrapper [name='custom_color[" + i + "]']").val(colorset_color).css("background-color", "#" + colorset_color);
+			}
+		}
+	}
 }
 
 elgg.pleio_template_selector.sitelogo_change = function(elm) {
