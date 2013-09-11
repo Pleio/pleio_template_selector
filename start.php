@@ -23,6 +23,9 @@
 		// register libraries
 		elgg_register_js("colorpicker", elgg_get_site_url() . "mod/pleio_template_selector/vendors/colorpicker/js/colorpicker.js");
 		elgg_register_css("colorpicker", elgg_get_site_url() . "mod/pleio_template_selector/vendors/colorpicker/css/colorpicker.css");
+		
+		// theme header will control display of search
+		elgg_unextend_view('page/elements/header', 'search/header');
 	}
 
 	function pleio_template_selector_page_handler($page){

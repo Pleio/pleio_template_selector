@@ -163,15 +163,6 @@
 /* ***************************************
 	SITE MENU
 *************************************** */
-.elgg-menu-site-container {
-	background: #<?php echo THEME_COLOR_1; ?>;
-	bottom: 0;
-    height: 45px;
-    left: 0;
-    position: absolute;
-    width: 100%;
-}
-
 .elgg-menu-site {
 	z-index: 1;
 }
@@ -189,9 +180,7 @@
 .elgg-menu-site-default {
 	position: absolute;
 	bottom: 0;
-	left: 20px;
 	height: 23px;
-	
 }
 
 .elgg-menu-site-default > li {

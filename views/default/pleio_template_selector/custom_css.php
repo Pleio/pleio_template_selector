@@ -6,6 +6,12 @@ $disable_rounded_corners = elgg_get_plugin_setting("disable_rounded_corners", "p
 $menu_bottom = sanitise_int(elgg_get_plugin_setting("menu_bottom", "pleio_template_selector"), false);
 $menu_align = elgg_get_plugin_setting("menu_align", "pleio_template_selector");
 
+$search_bottom = sanitise_int(elgg_get_plugin_setting("search_bottom", "pleio_template_selector"));
+if (!$search_bottom) {
+	$search_bottom = 1;
+}
+$search_right = sanitise_int(elgg_get_plugin_setting("search_right", "pleio_template_selector"));
+
 if (empty($menu_align) || !in_array($menu_align, array("left", "right"))) {
 	$menu_align = "left";
 }
@@ -55,9 +61,12 @@ if ($disable_rounded_corners != "no") {
 	}
 	?>
 }
+
+#pleio-template-selector-search {
+	bottom: <?php echo $search_bottom; ?>px;
+	right: <?php echo $search_right; ?>px;
+}
 <?php
-
-
 
 // Custom Css
 echo elgg_get_plugin_setting("custom_css", "pleio_template_selector");

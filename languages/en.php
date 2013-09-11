@@ -9,7 +9,7 @@
 		// admin
 		'pleio_template_selector:admin:title' => "Pleio Template selector",
 		
-		'pleio_template_selector:settings:colorset:header' => "Colorset",
+		'pleio_template_selector:settings:colorset:header' => "Colors",
 		
 		'pleio_template_selector:settings:colorset:mint' => "Mint",
 		'pleio_template_selector:settings:colorset:magenta' => "Magenta",
@@ -52,6 +52,12 @@
 		'pleio_template_selector:settings:header:show_search' => "Show a searchbox in the top menu bar",
 		'pleio_template_selector:settings:header:show_login_dropdown' => "Show the login dropdown",
 		'pleio_template_selector:settings:header:layout_header_height' => "Custom header height (0 for default)",
+
+		'pleio_template_selector:settings:header:menu_bottom' => "Menu bottom offset (0 for default)",
+		'pleio_template_selector:settings:header:menu_align' => "Menu alignment",
+
+		'pleio_template_selector:settings:header:search_right' => "Searchbox right offset",
+		'pleio_template_selector:settings:header:search_bottom' => "Searchbox bottom offset",
 
 		'pleio_template_selector:settings:custom_css:title' => "Custom CSS",
 		'pleio_template_selector:settings:custom_css:disclaimer' => "Please use custom css with care!",

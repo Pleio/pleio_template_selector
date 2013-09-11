@@ -15,7 +15,7 @@ if(elgg_get_plugin_setting("show_title", "pleio_template_selector") == "yes"){
 		<?php echo $site_name; ?>
 	</a>
 </h1>
-<?php 
+<?php
 }
 
 if($logo_url = pleio_template_selector_get_site_logo()) {
@@ -37,6 +37,7 @@ if($logo_url = pleio_template_selector_get_site_logo()) {
 			break;
 	}
 	
+	$style = "";
 	if(empty($class)){
 		$style = "style='top: ". $top . "px; left: " . $left . "px;'";
 	}

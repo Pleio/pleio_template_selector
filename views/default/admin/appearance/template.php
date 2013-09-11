@@ -31,6 +31,11 @@
 		"custom" => elgg_echo("pleio_template_selector:sitelogo:align:custom"),
 	);
 	
+	$left_right_align = array (
+		"left" => elgg_echo("pleio_template_selector:sitelogo:align:left"),
+		"right" => elgg_echo("pleio_template_selector:sitelogo:align:right")
+	);
+	
 	$yesno_options = array(
 		"yes" => elgg_echo("option:yes"),
 		"no" => elgg_echo("option:no")
@@ -74,9 +79,6 @@
 	$header .= "<label>" . elgg_echo("pleio_template_selector:settings:header:show_title") . "&nbsp;";
 	$header .= elgg_view("input/dropdown", array("name" => "params[show_title]", "value" => $plugin->show_title, "options_values" => $yesno_options)) . "</label><br />";
 	
-	$header .= "<label>" . elgg_echo("pleio_template_selector:settings:header:show_search") . "&nbsp;";
-	$header .= elgg_view("input/dropdown", array("name" => "params[show_search]", "value" => $plugin->show_search, "options_values" => $yesno_options)) . "</label><br />";
-	
 	$header .= "<label>" . elgg_echo("pleio_template_selector:settings:header:show_login_dropdown") . "&nbsp;";
 	$header .= elgg_view("input/dropdown", array("name" => "params[show_login_dropdown]", "value" => $plugin->show_login_dropdown, "options_values" => $yesno_options)) . "</label><br />";
 	
@@ -114,6 +116,21 @@
 	$header .= elgg_view("input/file", array("name" => "custom_sitelogo")) . "</label>";
 	$header .= "</div>";
 	
+	$header .= "<br />";
+	$header .= "<label>" . elgg_echo("pleio_template_selector:settings:header:menu_bottom") . "&nbsp;";
+	$header .= elgg_view("input/text", array("name" => "params[menu_bottom]", "value" => (int) $plugin->menu_bottom, "class" => "pleio-template-selector-setting-small-input")) . "px</label><br />";
+		
+	$header .= "<label>" . elgg_echo("pleio_template_selector:settings:header:menu_align") . "&nbsp;";
+	$header .= elgg_view("input/dropdown", array("name" => "params[menu_align]", "value" => $plugin->menu_align, "options_values" => $left_right_align)) . "</label><br />";
+
+	$header .= "<br />";
+	$header .= "<label>" . elgg_echo("pleio_template_selector:settings:header:show_search") . "&nbsp;";
+	$header .= elgg_view("input/dropdown", array("name" => "params[show_search]", "value" => $plugin->show_search, "options_values" => $yesno_options)) . "</label><br />";
+	$header .= "<label>" . elgg_echo("pleio_template_selector:settings:header:search_right") . "&nbsp;";
+	$header .= elgg_view("input/text", array("name" => "params[search_right]", "value" => (int) $plugin->search_right, "class" => "pleio-template-selector-setting-small-input")) . "px</label><br />";
+	$header .= "<label>" . elgg_echo("pleio_template_selector:settings:header:search_bottom") . "&nbsp;";
+	$header .= elgg_view("input/text", array("name" => "params[search_bottom]", "value" => (int) $plugin->search_bottom, "class" => "pleio-template-selector-setting-small-input")) . "px</label><br />";
+		
 	$form_body .= elgg_view_module("inline", elgg_echo("pleio_template_selector:settings:header:title"), $header);
 
 	// footer settings
