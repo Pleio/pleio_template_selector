@@ -8,7 +8,7 @@
 		
 		// extend css
 		elgg_extend_view("css/admin", "css/pleio_template_selector/admin");
-		elgg_extend_view("css/elgg", "pleio_template_selector/custom_css", 9999); // place it at the end so it can easily override other css
+		elgg_extend_view("css/elgg", "css/pleio_template_selector/custom", 9999); // place it at the end so it can easily override other css
 		
 		// extend js
 		elgg_extend_view("js/admin", "js/pleio_template_selector/admin");
