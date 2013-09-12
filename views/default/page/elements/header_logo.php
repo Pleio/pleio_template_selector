@@ -7,20 +7,19 @@ $site = elgg_get_site_entity();
 $site_name = $site->name;
 $site_url = elgg_get_site_url();
 
-if(elgg_get_plugin_setting("show_title", "pleio_template_selector") == "yes"){
-?>
-
-<h1>
-	<a class="elgg-heading-site" href="<?php echo $site_url; ?>">
-		<?php echo $site_name; ?>
-	</a>
-</h1>
-<?php
+if (elgg_get_plugin_setting("show_title", "pleio_template_selector") != "no") {
+	?>
+	<h1>
+		<a class="elgg-heading-site" href="<?php echo $site_url; ?>">
+			<?php echo $site_name; ?>
+		</a>
+	</h1>
+	<?php
 }
 
-if($logo_url = pleio_template_selector_get_site_logo()) {
+if ($logo_url = pleio_template_selector_get_site_logo()) {
 	$alignment = elgg_get_plugin_setting("sitelogo_align", "pleio_template_selector");
-	switch($alignment){
+	switch ($alignment) {
 		case "left":
 			$class = "elgg-heading-site-logo-left";
 			break;
@@ -38,7 +37,7 @@ if($logo_url = pleio_template_selector_get_site_logo()) {
 	}
 	
 	$style = "";
-	if(empty($class)){
+	if (empty($class)) {
 		$style = "style='top: ". $top . "px; left: " . $left . "px;'";
 	}
 ?>
