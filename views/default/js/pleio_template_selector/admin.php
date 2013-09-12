@@ -4,22 +4,25 @@
 elgg.provide("elgg.pleio_template_selector");
 
 elgg.pleio_template_selector.init = function() {
-	$('.pleio-template-selector-colorpicker').ColorPicker({
-		onSubmit: function(hsb, hex, rgb, el){
-			$(el).val(hex.toUpperCase());
-			$(el).css("background-color", "#" + hex);
-			$(el).ColorPickerHide();
+	$colorpickers = $('.pleio-template-selector-colorpicker');
+	if ($colorpickers.length > 0) {
+		$colorpickers.ColorPicker({
+			onSubmit: function(hsb, hex, rgb, el){
+				$(el).val(hex.toUpperCase());
+				$(el).css("background-color", "#" + hex);
+				$(el).ColorPickerHide();
+				$('#pleio_template_selector_admin_colorset_options [name="params[colorset]"][value="custom"]').attr("checked", "checked");
+			},
+			onBeforeShow: function(){
+				var val = $(this).val();
+				$(this).ColorPickerSetColor(val);
+			}
+		}).bind('keyup', function(){
+			$(this).ColorPickerSetColor($(this).val());
 			$('#pleio_template_selector_admin_colorset_options [name="params[colorset]"][value="custom"]').attr("checked", "checked");
-		},
-		onBeforeShow: function(){
-			var val = $(this).val();
-			$(this).ColorPickerSetColor(val);
-		}
-	}).bind('keyup', function(){
-		$(this).ColorPickerSetColor($(this).val());
-		$('#pleio_template_selector_admin_colorset_options [name="params[colorset]"][value="custom"]').attr("checked", "checked");
-	});
-
+		});
+	}
+	
 	$('#pleio_template_selector_admin_colorset_options [name="params[colorset]"]').live("click", elgg.pleio_template_selector.switch_colorset);
 }
 
