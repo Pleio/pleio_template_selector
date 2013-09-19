@@ -40,6 +40,8 @@
 		
 		'pleio_template_selector:settings:footer:title' => "Footer",
 		'pleio_template_selector:settings:footer:show_logo_footer' => "Show footer logo",
+		'pleio_template_selector:settings:footer:custom_footer_html' => "Custom footer HTML",
+		'pleio_template_selector:settings:footer:custom_footer_html:info' => "This will replace current footer text",
 			
 		'pleio_template_selector:settings:other:title' => "Other",
 		'pleio_template_selector:settings:other:disable_rounded_corners' => "Remove rounded corners",

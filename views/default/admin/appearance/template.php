@@ -201,8 +201,12 @@
 
 	// footer settings
 	$footer = "<label>" . elgg_echo("pleio_template_selector:settings:footer:show_logo_footer") . "&nbsp;";
-	$footer .= elgg_view("input/dropdown", array("name" => "params[show_logo_footer]", "value" => $plugin->show_logo_footer, "options_values" => $yesno_options)) . "</label>";
-					
+	$footer .= elgg_view("input/dropdown", array("name" => "params[show_logo_footer]", "value" => $plugin->show_logo_footer, "options_values" => $yesno_options)) . "</label><br />";
+
+	$footer .= "<label>" . elgg_echo("pleio_template_selector:settings:footer:custom_footer_html") . "&nbsp;";
+	$footer .= elgg_view("input/plaintext", array("name" => "params[custom_footer_html]", "value" => $plugin->custom_footer_html)) . "</label>";
+	$footer .= "<div class='elgg-subtext'>". elgg_echo("pleio_template_selector:settings:footer:custom_footer_html:info") . "</div>";
+	
 	$form_body .= elgg_view_module("inline", elgg_echo("pleio_template_selector:settings:footer:title"), $footer);
 	
 	// other settings

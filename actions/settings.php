@@ -42,9 +42,12 @@
 					elgg_set_plugin_setting($setting, $value, "pleio_template_selector");
 					break;
 				default:
-					if($setting == "custom_css"){
+					if ($setting == "custom_css") {
 						$value = $_REQUEST["params"]["custom_css"];
+					} elseif ($setting == "custom_footer_html") {
+						$value = $_REQUEST["params"]["custom_footer_html"];
 					}
+					
 					elgg_set_plugin_setting($setting, $value, "pleio_template_selector");
 					break;
 			}
