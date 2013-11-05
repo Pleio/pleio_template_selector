@@ -196,7 +196,11 @@
 	$header .= elgg_view("input/text", array("name" => "params[search_right]", "value" => (int) $plugin->search_right, "class" => "pleio-template-selector-setting-small-input")) . "px</label><br />";
 	$header .= "<label>" . elgg_echo("pleio_template_selector:settings:header:search_bottom") . "&nbsp;";
 	$header .= elgg_view("input/text", array("name" => "params[search_bottom]", "value" => (int) $plugin->search_bottom, "class" => "pleio-template-selector-setting-small-input")) . "px</label><br />";
-		
+
+	$header .= "<br />";
+	$header .= "<label>" . elgg_echo("pleio_template_selector:settings:header:url") . "&nbsp;";
+	$header .= elgg_view("input/text", array("name" => "params[header_url]", "value" => $plugin->header_url)) . "</label><br />";
+	
 	$form_body .= elgg_view_module("inline", elgg_echo("pleio_template_selector:settings:header:title"), $header);
 
 	// footer settings

@@ -37,6 +37,7 @@
 		'pleio_template_selector:settings:header:sitelogo:custom' => "Upload a custom logo",
 		'pleio_template_selector:settings:header:sitelogo_align' => "Where to position the site logo",
 		'pleio_template_selector:settings:header:sitelogo_align:left' => "Left",
+		'pleio_template_selector:settings:header:url' => "Custom Header URL",
 		
 		'pleio_template_selector:settings:footer:title' => "Footer",
 		'pleio_template_selector:settings:footer:show_logo_footer' => "Show footer logo",

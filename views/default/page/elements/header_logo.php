@@ -7,6 +7,10 @@ $site = elgg_get_site_entity();
 $site_name = $site->name;
 $site_url = elgg_get_site_url();
 
+if ($custom_header_url = elgg_get_plugin_setting("header_url", "pleio_template_selector")) {
+	$site_url = elgg_normalize_url($custom_header_url);
+}
+
 if (elgg_get_plugin_setting("show_title", "pleio_template_selector") != "no") {
 	?>
 	<h1>
@@ -42,7 +46,7 @@ if ($logo_url = pleio_template_selector_get_site_logo()) {
 	}
 ?>
 	<div class="elgg-heading-site-logo <?php echo $class; ?>" <?php echo $style; ?>>
-		<a href="<?php echo elgg_get_site_url(); ?>" title="<?php echo $vars['config']->sitename; ?>"><img src="<?php echo $logo_url;?>" alt="<?php echo $vars['config']->sitename; ?>" /></a>
+		<a href="<?php echo $site_url; ?>" title="<?php echo $site_name; ?>"><img src="<?php echo $logo_url;?>" alt="<?php echo $site_name; ?>" /></a>
 	</div>
 <?php
 }
