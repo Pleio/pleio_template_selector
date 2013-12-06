@@ -51,6 +51,7 @@
 		// add site logo to the public pages
 		$result[] = "template_selector/custom_sitelogo/.*";
 		$result[] = "template_selector/custom_background/.*";
+		$result[] = "template_selector/favicon";
 				
 		return $result;
 	}
