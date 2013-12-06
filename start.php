@@ -37,6 +37,9 @@
 			case "custom_background":
 				include(dirname(__FILE__) . "/pages/custom_background.php");
 				break;
+			case "favicon":
+				include(dirname(__FILE__) . "/pages/favicon.php");
+				break;
 			default:
 				return false;
 		}

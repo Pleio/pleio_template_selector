@@ -2,11 +2,11 @@
 
 	$params = get_input("params");
 	
-	if(!empty($params) && is_array($params)){
+	if (!empty($params) && is_array($params)) {
 		$error_count = 0;
 		
-		foreach($params as $setting => $value){
-			switch($setting){
+		foreach ($params as $setting => $value) {
+			switch ($setting){
 				case "sitelogo":
 					if($value == "custom"){
 						if($logo_contents = get_uploaded_file("custom_sitelogo")){
@@ -57,6 +57,13 @@
 			if (!pleio_template_selector_save_background_image($background_image)) {
 				$error_count++;
 				register_error(elgg_echo("pleio_template_selector:actions:settings:error:background_image:save"));
+			}
+		}
+
+		if ($favicon = get_uploaded_file("favicon")) {
+			if (!pleio_template_selector_save_favicon($favicon)) {
+				$error_count++;
+				register_error(elgg_echo("pleio_template_selector:actions:settings:error:favicon:save"));
 			}
 		}
 		

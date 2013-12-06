@@ -72,6 +72,26 @@
 		
 		return $result;
 	}
+
+	function pleio_template_selector_save_favicon($contents){
+		$result = false;
+		
+		if(!empty($contents)){
+			if(!is_dir(elgg_get_config("dataroot") . "pleio_template_selector/")){
+				mkdir(elgg_get_config("dataroot") . "pleio_template_selector/");
+			}
+			
+			if(!is_dir(elgg_get_config("dataroot") . "pleio_template_selector/favicon/")){
+				mkdir(elgg_get_config("dataroot") . "pleio_template_selector/favicon/");
+			}
+			
+			if(file_put_contents(elgg_get_config("dataroot") . "pleio_template_selector/favicon/favicon_" . elgg_get_site_entity()->getGUID(), $contents)){
+				$result = true;
+			}
+		}
+		
+		return $result;
+	}
 	
 	function pleio_template_selector_set_colors(){
 		

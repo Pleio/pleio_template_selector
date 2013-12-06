@@ -45,6 +45,7 @@
 		'pleio_template_selector:settings:footer:custom_footer_html:info' => "This will replace current footer text",
 			
 		'pleio_template_selector:settings:other:title' => "Other",
+		'pleio_template_selector:settings:other:favicon' => "Favicon",
 		'pleio_template_selector:settings:other:disable_rounded_corners' => "Remove rounded corners",
 		'pleio_template_selector:settings:other:show_body_gradient' => "Show gradient body border",
 		'pleio_template_selector:settings:other:background_image' => "Custom background image",
@@ -102,6 +103,7 @@
 		'pleio_template_selector:actions:settings:error:custom_logo' => "You forgot to upload a custom logo",
 		'pleio_template_selector:actions:settings:error:custom_logo:save' => "There was an error while saving the custom logo",
 		'pleio_template_selector:actions:settings:error:background_image:save' => "There were some errors while saving the settings",
+		'pleio_template_selector:actions:settings:error:favicon:save' => "There was an error while saving the favicon",
 		'pleio_template_selector:actions:settings:error:save' => "There were some errors while saving the settings",
 		'pleio_template_selector:actions:settings:success' => "The template settings were saved successfully",
 	);
