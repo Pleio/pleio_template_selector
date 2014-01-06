@@ -106,6 +106,10 @@
 		'pleio_template_selector:actions:settings:error:favicon:save' => "There was an error while saving the favicon",
 		'pleio_template_selector:actions:settings:error:save' => "There were some errors while saving the settings",
 		'pleio_template_selector:actions:settings:success' => "The template settings were saved successfully",
+			
+		// newsletter template
+		'newsletter:edit:template:select:pleio_template_selector' => "Pleio Template Selector",
+			
 	);
 	
 	add_translation("en", $english);
