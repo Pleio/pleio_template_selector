@@ -61,6 +61,10 @@
 				background: #FFFFFF;
 				padding: 10px;
 			}
+
+			#notification_content p {
+				margin: 0px;
+			}
 			
 			#notification_footer {
 				
