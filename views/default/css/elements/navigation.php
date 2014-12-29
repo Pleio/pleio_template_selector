@@ -113,8 +113,8 @@
 
 .elgg-main .elgg-breadcrumbs {
 	position: relative;
-	top: -6px;
 	left: 0;
+	margin-bottom: 5px;
 }
 
 /* ***************************************
