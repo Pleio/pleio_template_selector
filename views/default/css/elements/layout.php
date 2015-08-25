@@ -55,24 +55,17 @@
 }
 
 /***** PAGE MESSAGES ******/
-.elgg-system-messages {
-	position: fixed;
-	top: 24px;
-	right: 20px;
-	max-width: 500px;
-	z-index: 2000;
-}
-.elgg-system-messages li {
+.elgg-page-messages {
+	width: 990px;
+	margin: 0 auto;
+	position: relative;
 	margin-top: 10px;
-}
-.elgg-system-messages li p {
-	margin: 0;
 }
 
 /***** PAGE HEADER ******/
 
 .elgg-page-theme-header {
-	margin: 20px auto 0;
+	margin: 0 auto 0;
 	width: 1010px;
 	height: 10px;
 	background: transparent url("<?php echo elgg_get_site_url(); ?>mod/pleio_template_selector/_graphics/background.png") repeat-y scroll left top;
