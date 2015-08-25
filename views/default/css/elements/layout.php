@@ -59,13 +59,13 @@
 	width: 990px;
 	margin: 0 auto;
 	position: relative;
-	margin-top: 10px;
+	margin-top: 20px;
 }
 
 /***** PAGE HEADER ******/
 
 .elgg-page-theme-header {
-	margin: 0 auto 0;
+	margin: 20px auto 0;
 	width: 1010px;
 	height: 10px;
 	background: transparent url("<?php echo elgg_get_site_url(); ?>mod/pleio_template_selector/_graphics/background.png") repeat-y scroll left top;
