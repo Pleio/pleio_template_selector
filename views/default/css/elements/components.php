@@ -116,7 +116,7 @@
     border: 1px solid;
     font-weight: bold;
     display: block;
-    padding: 10px;
+    padding: 20px;
     cursor: pointer;
 }
 .elgg-state-success {
