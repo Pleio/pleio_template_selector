@@ -239,7 +239,10 @@
 			
 	$other .= "<label>" . elgg_echo("pleio_template_selector:settings:other:background_image_repeat") . "&nbsp;";
 	$other .= elgg_view("input/dropdown", array("name" => "params[background_image_repeat]", "value" => $plugin->background_image_repeat, "options_values" => $background_image_repeat_options)) . "</label><br />";
-			
+
+	$other .= "<label>" . elgg_echo("pleio_template_selector:settings:other:profile_view") . "&nbsp;";
+	$other .= elgg_view("input/dropdown", array("name" => "params[profile_view]", "value" => $plugin->profile_view, "options_values" => ["old" => elgg_echo("pleio_template:old"), "new" => elgg_echo("pleio_template:new")])) . "</label><br />";
+
 	$form_body .= elgg_view_module("inline", elgg_echo("pleio_template_selector:settings:other:title"), $other);
 	
 	// custom css

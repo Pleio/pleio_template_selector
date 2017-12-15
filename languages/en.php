@@ -67,6 +67,9 @@
 		'pleio_template_selector:settings:other:background_image_repeat:repeat-x' => "Repeat horizontal",
 		'pleio_template_selector:settings:other:background_image_repeat:repeat-y' => "Repeat vertical",
 		'pleio_template_selector:settings:other:background_image_repeat:no-repeat' => "Don´t repeat",
+		'pleio_template_selector:settings:other:profile_view' => "Profile view",
+		'pleio_template:old' => "Old",
+		'pleio_template:new' => "New",
 			
 		'pleio_template_selector:settings:logo:none' => "No site logo",
 		'pleio_template_selector:settings:logo:blank' => "Blank default site logo",
