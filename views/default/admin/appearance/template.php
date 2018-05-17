@@ -218,7 +218,11 @@
 	
 	$other .= "<label>" . elgg_echo("pleio_template_selector:settings:other:favicon") . "&nbsp;";
 	$other .= elgg_view("input/file", array("name" => "favicon")) . "</label><br />";
-	
+
+	$other .= "<label>" . elgg_echo("pleio_template_selector:settings:other:absolute_time") . "&nbsp;";
+	$other .= elgg_view("input/dropdown", array("name" => "params[absolute_time]", "value" => $plugin->absolute_time, "options_values" => $noyes_options)) . "</label><br />";
+
+
 	$other .= "<label>" . elgg_echo("pleio_template_selector:settings:other:disable_rounded_corners") . "&nbsp;";
 	$other .= elgg_view("input/dropdown", array("name" => "params[disable_rounded_corners]", "value" => $plugin->disable_rounded_corners, "options_values" => $yesno_options)) . "</label><br />";
 

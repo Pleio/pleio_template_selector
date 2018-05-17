@@ -46,6 +46,7 @@
 			
 		'pleio_template_selector:settings:other:title' => "Other",
 		'pleio_template_selector:settings:other:favicon' => "Favicon",
+		'pleio_template_selector:settings:other:absolute_time' => "Show absolute time",
 		'pleio_template_selector:settings:other:disable_rounded_corners' => "Remove rounded corners",
 		'pleio_template_selector:settings:other:show_body_gradient' => "Show gradient body border",
 		'pleio_template_selector:settings:other:background_image' => "Custom background image",

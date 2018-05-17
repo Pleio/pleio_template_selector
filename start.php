@@ -4,6 +4,11 @@ require_once(dirname(__FILE__) . "/lib/functions.php");
 elgg_register_event_handler("init", "system", "pleio_template_selector_init");
 
 function pleio_template_selector_init() {
+    $lang = get_current_language();
+    if ($lang == "nl") {
+        setlocale(LC_TIME, "nl_NL");
+    }
+
     // set colors for template
     pleio_template_selector_set_colors();
 
