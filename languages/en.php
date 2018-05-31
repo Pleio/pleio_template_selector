@@ -6,6 +6,9 @@
 		// menu items
 		'admin:appearance:template' => "Template settings",
 
+		'pleio_template_selector:notification:explain' => "You recieve this e-mail because you are subscribed for the notifications.",
+		'pleio_template_selector:notification:link' => "Click <a href=\"%s\">here</a> to change the settings.",
+
 		// admin
 		'pleio_template_selector:admin:title' => "Pleio Template selector",
 		
