@@ -24,6 +24,12 @@ if(elgg_get_plugin_setting("show_search", "pleio_template_selector") !== "no"){
 	echo "</div>";
 }
 
+
+// cookie consent
+if(elgg_get_plugin_setting("cookie_consent", "pleio_template_selector") !== "no"){
+	echo elgg_view('cookie_consent/header');
+}
+
 echo "<div class='elgg-menu-site-container'>";
 // insert site-wide navigation
 echo elgg_view_menu('site');
