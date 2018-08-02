@@ -5,6 +5,7 @@ $plugin = elgg_get_plugin_from_id("pleio_template_selector");
 $layout_header_height = sanitise_int($plugin->layout_header_height, false);
 $show_logo_footer = $plugin->show_logo_footer;
 $disable_rounded_corners = $plugin->disable_rounded_corners;
+$sidebar_align_left = $plugin->sidebar_align_left;
 $menu_bottom = sanitise_int($plugin->menu_bottom, false);
 $menu_align = $plugin->menu_align;
 $background_color = $plugin->custom_color_6;
@@ -31,7 +32,7 @@ if (!empty($layout_header_height)) {
 	}
 	<?php
 }
-	
+
 if ($show_logo_footer == "no") {
 	?>
 	.elgg-page-theme-footer {
@@ -49,6 +50,16 @@ if ($disable_rounded_corners != "no") {
 	}
 	<?php
 }
+
+if ($sidebar_align_left != "no") {
+	?>
+	.elgg-sidebar {
+		float:left;
+		margin:0;
+		padding:0 20px; }
+	<?php
+}
+
 
 ?>
 .elgg-menu-site-container {
@@ -86,7 +97,7 @@ if ($background_color) {
 
 if ($show_body_gradient == "no") {
 	?>
-	
+
 	.elgg-page-default .elgg-page-body,
 	.elgg-page-header,
 	.elgg-page-theme-footer,
@@ -101,7 +112,7 @@ if ($use_background_image == "yes") {
 		$background_image_position = $plugin->background_image_position;
 		$background_image_fixed = $plugin->background_image_fixed;
 		$background_image_repeat = $plugin->background_image_repeat;
-		
+
 		?>
 		body {
 			background-image: url(<?php echo $background_image_url; ?>);
@@ -125,7 +136,7 @@ if ($widget_background_color) {
 	.elgg-module-widget:hover {
 		background-color: #<?php echo $widget_background_color; ?>;
 	}
-	
+
 	.elgg-module-widget > .elgg-body {
 		border-top-color: #<?php echo $widget_background_color; ?>;
 	}
@@ -152,4 +163,3 @@ if ($widget_title_color) {
 
 // Custom Css
 echo $plugin->custom_css;
-	
