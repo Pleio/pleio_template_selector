@@ -51,7 +51,7 @@
 		'pleio_template_selector:settings:other:favicon' => "Favicon",
 		'pleio_template_selector:settings:other:absolute_time' => "Show absolute time",
 		'pleio_template_selector:settings:other:disable_rounded_corners' => "Remove rounded corners",
-		'pleio_template_selector:settings:other:sidebar_align_left' => "Align sidebar left (default right)",
+		'pleio_template_selector:settings:other:sidebar_align_left' => "Align sidebar left",
 		'pleio_template_selector:settings:other:show_body_gradient' => "Show gradient body border",
 		'pleio_template_selector:settings:other:background_image' => "Custom background image",
 		'pleio_template_selector:settings:other:use_background_image' => "Use a custom background image",
