@@ -37,6 +37,9 @@ function pleio_template_selector_init() {
 
     // theme header will control display of search
     elgg_unextend_view('page/elements/header', 'search/header');
+
+    // unregister the wire plugin status view
+    elgg_unextend_view('profile/status', 'thewire/profile_status');
 }
 
 function pleio_template_selector_page_handler($page){
