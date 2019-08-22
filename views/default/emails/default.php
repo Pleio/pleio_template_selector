@@ -152,7 +152,7 @@ $overview = elgg_extract("overview", $vars);
 
                                                     <a href="https://www.pleio.nl">
                                                         <img align="center" alt="Pleio logo"
-                                                             src="<?php echo $site->url; ?>mod/pleio_template/src/images/pleio-email.png"
+                                                             src="<?php echo $site->url; ?>mod/pleio/_graphics/pleio-email.png"
                                                              width="84"
                                                              style="max-width:168px; padding-bottom: 0; display: inline !important; vertical-align: bottom;"
                                                              class="img-m-center">
