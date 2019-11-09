@@ -75,19 +75,28 @@ function pleio_template_selector_email_handler($hook, $type, $return, $params) {
 
     $message_id = sprintf("<%s.%s@%s>", base_convert(microtime(), 10, 36), base_convert(bin2hex(openssl_random_pseudo_bytes(8)), 16, 36), $_SERVER["SERVER_NAME"]);
 
-    $reply_to = "=?UTF-8?B?" . base64_encode($site->name) . "?= ";
+    $from = "=?UTF-8?B?" . base64_encode($site->name) . "?= ";
 
-    if ($site->email) {
-        $reply_to .= "<" . $site->email . ">";
+	if ($params["from"] && strtolower(substr($site->email, -9) == '@pleio.nl')) {
+        $from .= "<" . $params["from"] . ">";
     } elseif (isset($CONFIG->email_from)) {
-        $reply_to .= "<{$CONFIG->email_from[1]}>";
+        $from .= "<{$CONFIG->email_from}>";
     } else {
-        $reply_to .= "<noreply@" . get_site_domain($site->guid) . ">";
+        $from .= "<noreply@" . get_site_domain($site->guid) . ">";
     }
 
-    $headers = "Sender: {$params["from"]}\r\n"
-        . "From: {$params["from"]}\r\n"
+
+    // custom reply parameter is set
+    if (is_array($params["params"]) && isset($params["params"]["reply_to"])) {
+        $reply_to = $params["params"]["reply_to"];
+    } else {
+        $reply_to = $from;
+    }
+
+    $headers = "Sender: {$from}\r\n"
+        . "From: {$from}\r\n"
         . "Reply-To: {$reply_to}\r\n"
+        . "Return-Path: {$reply_to}\r\n"
         . "Message-Id: {$message_id}\r\n"
         . "MIME-Version: 1.0\r\n"
         . "Content-Type: text/html; charset=UTF-8\r\n";
