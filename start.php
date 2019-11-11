@@ -77,8 +77,8 @@ function pleio_template_selector_email_handler($hook, $type, $return, $params) {
 
     $from = "=?UTF-8?B?" . base64_encode($site->name) . "?= ";
 
-	if ($params["from"] && strtolower(substr($site->email, -9) == '@pleio.nl')) {
-        $from .= "<" . $params["from"] . ">";
+	if ($site->email && strtolower(substr($site->email, -9) == '@pleio.nl')) {
+        $from .= "<" . $site->email . ">";
     } elseif (isset($CONFIG->email_from)) {
         $from .= "<{$CONFIG->email_from}>";
     } else {
