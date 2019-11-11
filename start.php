@@ -87,7 +87,7 @@ function pleio_template_selector_email_handler($hook, $type, $return, $params) {
 
 
     // custom reply parameter is set
-    if (is_array($params["params"]) && isset($params["params"]["reply_to"])) {
+    if (is_array($params["params"]) && isset($params["params"]["reply_to"]) && strtolower(substr($params["params"]["reply_to"], -9) == '@pleio.nl')) {
         $reply_to = $params["params"]["reply_to"];
     } else {
         $reply_to = $from;
